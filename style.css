@@ -1,10 +1,10 @@
 /* ===========================================================
-   MailCapital — Email & SMS infrastructure for eCommerce brands
+   MailCapital - Email & SMS infrastructure for eCommerce brands
    Design tokens
 =========================================================== */
 :root{
   /* Colors */
-  --ink:        #14171F;   /* deep charcoal navy — inbox / system */
+  --ink:        #14171F;   /* deep charcoal navy - inbox / system */
   --ink-soft:   #1D212C;
   --ink-line:   #2A2F3B;
   --paper:      #EFEDE2;   /* receipt paper */
@@ -319,6 +319,61 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .card p{ margin:0; font-size: 14.5px; color: var(--ink-text-70); }
 
 /* ===========================================================
+   EMAIL DESIGN SHOWCASE / MARQUEE
+=========================================================== */
+.showcase{ padding: 20px 0 100px; }
+.showcase .section-title{ margin-bottom: 40px; }
+.marquee{
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.marquee__track{
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  width: max-content;
+  animation: marquee-scroll 26s linear infinite;
+  will-change: transform;
+  padding: 4px 0;
+}
+.marquee__card{
+  width: 220px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 16px;
+  border: 1px solid var(--paper-line);
+  box-shadow: 0 20px 40px -26px rgba(20,23,31,.25);
+  background: var(--paper-raised);
+  flex: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.marquee__card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 26px 46px -22px rgba(20,23,31,.35);
+}
+.showcase__note{
+  margin: 26px auto 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-text-70);
+}
+@keyframes marquee-scroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee{ overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .marquee__track{ animation: none; }
+}
+@media (max-width: 720px){
+  .marquee__card{ width: 168px; }
+}
+
+
+/* ===========================================================
    PROCESS / TIMELINE
 =========================================================== */
 .process{ padding: 20px 0 110px; }
@@ -390,7 +445,14 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   margin: 0 0 10px;
   font-weight: 700;
 }
-.book__panel-title{ font-family: var(--font-display); font-size: 21px; font-weight: 600; margin: 0 0 22px; }
+.book__panel-title{ font-family: var(--font-display); font-size: 21px; font-weight: 600; margin: 0 0 20px; }
+.book__calendar{
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--paper-line);
+  background: #fff;
+}
+.book__calendar iframe{ display:block; }
 .book__panel-note{ margin: 16px 0 0; font-size: 13.5px; color: var(--ink-text-70); }
 .book__panel-note a{ color: var(--flash-dark); font-weight: 600; }
 
