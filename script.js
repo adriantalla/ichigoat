@@ -1,0 +1,93 @@
+// ---------- Mobile nav toggle ----------
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+// ---------- Footer year ----------
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ---------- Count-up animation ----------
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function formatCurrency(value) {
+  return '$' + Math.round(value).toLocaleString('en-US');
+}
+
+function animateValue(el, { to, duration = 1200, prefix = '', suffix = '', isCurrency = false }) {
+  if (prefersReducedMotion) {
+    el.textContent = isCurrency ? formatCurrency(to) : `${prefix}${to}${suffix}`;
+    return;
+  }
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = to * eased;
+    el.textContent = isCurrency
+      ? formatCurrency(current)
+      : `${prefix}${(to < 10 ? current.toFixed(1) : Math.round(current))}${suffix}`;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function runReceiptAnimation() {
+  const lineItems = document.querySelectorAll('#receipt-lines b[data-amount]');
+  const total = document.getElementById('receipt-total');
+
+  lineItems.forEach((el, i) => {
+    const amount = Number(el.dataset.amount);
+    setTimeout(() => {
+      animateValue(el, { to: amount, duration: 700, isCurrency: true });
+    }, prefersReducedMotion ? 0 : i * 220);
+  });
+
+  if (total) {
+    const amount = Number(total.dataset.amount);
+    const delay = prefersReducedMotion ? 0 : lineItems.length * 220 + 200;
+    setTimeout(() => {
+      animateValue(total, { to: amount, duration: 900, isCurrency: true });
+    }, delay);
+  }
+}
+
+function runStatsAnimation() {
+  document.querySelectorAll('.stat__num[data-count]').forEach(el => {
+    const to = Number(el.dataset.count);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    animateValue(el, { to, duration: 1300, prefix, suffix });
+  });
+}
+
+// Trigger once elements enter the viewport
+const observed = new WeakSet();
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !observed.has(entry.target)) {
+      observed.add(entry.target);
+      if (entry.target.id === 'receipt') runReceiptAnimation();
+      if (entry.target.classList.contains('stats')) runStatsAnimation();
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+
+const receiptEl = document.getElementById('receipt');
+const statsEl = document.querySelector('.stats');
+if (receiptEl) observer.observe(receiptEl);
+if (statsEl) observer.observe(statsEl);
