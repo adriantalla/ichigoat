@@ -1,5 +1,5 @@
 /* ===========================================================
-   Cartline — Email & SMS marketing for eCommerce brands
+   MailCapital — Email & SMS infrastructure for eCommerce brands
    Design tokens
 =========================================================== */
 :root{
@@ -135,13 +135,10 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   font-weight: 700;
   font-size: 19px;
 }
-.nav__logo-mark{
-  width: 30px; height:30px; border-radius: 8px;
-  background: var(--ink);
-  color: var(--flash);
-  display:inline-flex; align-items:center; justify-content:center;
-  font-family: var(--font-mono);
-  font-size: 15px;
+.nav__logo-img{
+  width: 26px; height:26px;
+  object-fit: contain;
+  display:block;
 }
 .nav__links{ display:flex; align-items:center; gap: 34px; font-weight: 500; font-size: 15px; }
 .nav__cta{
