@@ -29,7 +29,7 @@
 
 *, *::before, *::after{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
-section[id], div[id]{ scroll-margin-top: 96px; }
+section[id], div[id]{ scroll-margin-top: 132px; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   *, *::before, *::after{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
@@ -272,7 +272,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 /* ===========================================================
    STATS
 =========================================================== */
-.stats{ background: var(--ink); border-top: 1px solid var(--ink-line); padding: 50px 0 64px; }
+.stats{ background: var(--ink); border-top: 1px solid var(--ink-line); padding: 76px 0 64px; }
 .stats__row{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -322,7 +322,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 /* ===========================================================
    EMAIL DESIGN SHOWCASE / MARQUEE
 =========================================================== */
-.showcase{ padding: 20px 0 100px; }
+.showcase{ padding: 56px 0 100px; }
 .showcase .section-title{ margin-bottom: 40px; }
 .marquee{
   overflow: hidden;
@@ -399,7 +399,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 /* ===========================================================
    PROCESS / TIMELINE
 =========================================================== */
-.process{ padding: 20px 0 110px; }
+.process{ padding: 56px 0 110px; }
 .process__layout{
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -408,7 +408,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 .process__visual{
   position: sticky;
-  top: 110px;
+  top: 132px;
 }
 .process__chart-card{
   background: var(--paper-raised);
@@ -438,15 +438,9 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   stroke: var(--flash);
   stroke-width: 3;
   stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw-path 4.5s ease-in-out infinite;
+  fill: none;
 }
 .process__chart-dot{ fill: var(--flash-dark); }
-@keyframes draw-path{
-  0%{ stroke-dashoffset: 1; }
-  70%, 100%{ stroke-dashoffset: 0; }
-}
 .process__chart-labels{
   display:flex;
   justify-content: space-between;
@@ -474,12 +468,9 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   font-weight: 700;
   color: var(--flash-dark);
 }
-@media (prefers-reduced-motion: reduce){
-  .process__chart-path{ animation: none; stroke-dashoffset: 0; }
-}
-@media (max-width: 900px){
+@media (max-width: 760px){
   .process__layout{ grid-template-columns: 1fr; }
-  .process__visual{ position: static; order: -1; max-width: 320px; }
+  .process__visual{ position: static; max-width: 400px; margin: 40px auto 0; }
 }
 .timeline{ border-top: 1px solid var(--paper-line); }
 .timeline__item{
@@ -534,6 +525,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   color: var(--flash);
   font-weight: 700;
 }
+.book__copy-cta{ margin-top: 32px; }
 .book__panel{
   background: var(--paper-raised);
   color: var(--ink-text);
