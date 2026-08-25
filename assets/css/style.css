@@ -603,6 +603,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   box-shadow: 0 20px 40px -26px rgba(20,23,31,.25);
   background: var(--paper-raised);
   overflow: hidden;
+  cursor: pointer;
   transition: transform .2s ease, box-shadow .2s ease;
 }
 .marquee__card:hover{
@@ -617,14 +618,19 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 .marquee__img{
   position: absolute;
-  top: 0; left: 0;
+  top: 0; 
+  left: 0;
   width: 100%;
   height: auto;
   display: block;
-  animation: pan-vertical 9s ease-in-out infinite alternate;
-  animation-delay: 1.2s;
+  transform: translateY(0);
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
 }
-.marquee:hover .marquee__img{ animation-play-state: paused; }
+/* Scrolls image to reveal full email on hover */
+.marquee__card:hover .marquee__img{
+  transform: translateY(calc(-100% + 440px));
+}
 @keyframes pan-vertical{
   0%, 12%{ transform: translateY(0); }
   88%, 100%{ transform: translateY(var(--pan-distance, 0px)); }
