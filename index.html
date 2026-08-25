@@ -93,29 +93,6 @@
           No retainers. You own everything we build.
         </p>
 
-        <!-- Interactive Revenue Slider -->
-        <div class="calc-box">
-          <div class="calc-box__head">
-            <span class="calc-box__label">Your Current Monthly Store Revenue:</span>
-            <span class="calc-box__val" id="calc-display-val">$100,000/mo</span>
-          </div>
-          <input 
-            type="range" 
-            id="rev-slider" 
-            class="calc-slider" 
-            min="20000" 
-            max="500000" 
-            step="5000" 
-            value="100000" 
-            aria-label="Monthly revenue slider"
-          >
-          <div class="calc-box__ticks">
-            <span>$20k/mo</span>
-            <span>$250k/mo</span>
-            <span>$500k+/mo</span>
-          </div>
-        </div>
-
         <div class="hero__actions">
           <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
           <a href="#services" class="btn btn--ghost">See what's included</a>
@@ -125,15 +102,28 @@
 
       <div class="hero__visual" aria-hidden="false">
         <div class="hero__visual-wrap" id="hero-visual-wrap">
-          <!-- Floating Proof Badges -->
-          <div class="proof-badge proof-badge--top">
-            <span class="proof-badge__dot"></span>
-            <span>⚡ Live in 15 Days · No Retainers</span>
-          </div>
-
-          <div class="proof-badge proof-badge--bottom">
-            <span class="proof-badge__icon">📈</span>
-            <span>Avg. <strong>+28% to +35%</strong> Flow Revenue Lift</span>
+          
+          <!-- Interactive Revenue Slider -->
+          <div class="calc-box">
+            <div class="calc-box__head">
+              <span class="calc-box__label">Monthly Store Revenue:</span>
+              <span class="calc-box__val" id="calc-display-val">$100,000/mo</span>
+            </div>
+            <input 
+              type="range" 
+              id="rev-slider" 
+              class="calc-slider" 
+              min="20000" 
+              max="500000" 
+              step="5000" 
+              value="100000" 
+              aria-label="Monthly revenue slider"
+            >
+            <div class="calc-box__ticks">
+              <span>$20k</span>
+              <span>$250k</span>
+              <span>$500k+</span>
+            </div>
           </div>
 
           <!-- Dynamic Receipt -->
@@ -172,6 +162,7 @@
             </div>
             <p class="receipt__fine">*Estimated monthly recoverable flow revenue</p>
           </div>
+
         </div>
       </div>
     </div>
