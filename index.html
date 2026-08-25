@@ -28,7 +28,7 @@
       <a href="#showcase">Work</a>
       <a href="#process">Process</a>
       <a href="#results">Results</a>
-      <a href="#book" class="nav__cta">Get Your Free Audit</a>
+      <a href="#calendar" class="nav__cta">Get Your Free Audit</a>
     </nav>
 
     <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
@@ -54,7 +54,7 @@
           No retainers. You own everything we build.
         </p>
         <div class="hero__actions">
-          <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
+          <a href="#calendar" class="btn btn--primary">Get Your Free Audit</a>
           <a href="#services" class="btn btn--ghost">See what's included</a>
         </div>
         <p class="hero__note">Free 20-minute audit. No pitch deck.</p>
@@ -152,20 +152,20 @@
     </div>
 
     <div class="marquee" role="region" aria-label="Email design examples">
-      <div class="marquee__track">
-        <img src="email-design-placeholder.png" alt="Welcome flow email design placeholder" class="marquee__card">
-        <img src="email-design-placeholder.png" alt="Abandoned cart email design placeholder" class="marquee__card">
-        <img src="email-design-placeholder.png" alt="Post-purchase email design placeholder" class="marquee__card">
-        <img src="email-design-placeholder.png" alt="Win-back email design placeholder" class="marquee__card">
-        <img src="email-design-placeholder.png" alt="VIP campaign email design placeholder" class="marquee__card">
-        <img src="email-design-placeholder.png" alt="Promo campaign email design placeholder" class="marquee__card">
+      <div class="marquee__track" id="marquee-track">
+        <div class="marquee__card"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="Welcome flow email design placeholder" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="Abandoned cart email design placeholder" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="Post-purchase email design placeholder" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="Win-back email design placeholder" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="VIP campaign email design placeholder" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="Promo campaign email design placeholder" class="marquee__img"></div></div>
         <!-- duplicated for seamless loop -->
-        <img src="email-design-placeholder.png" alt="" class="marquee__card" aria-hidden="true">
-        <img src="email-design-placeholder.png" alt="" class="marquee__card" aria-hidden="true">
-        <img src="email-design-placeholder.png" alt="" class="marquee__card" aria-hidden="true">
-        <img src="email-design-placeholder.png" alt="" class="marquee__card" aria-hidden="true">
-        <img src="email-design-placeholder.png" alt="" class="marquee__card" aria-hidden="true">
-        <img src="email-design-placeholder.png" alt="" class="marquee__card" aria-hidden="true">
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="email-design-placeholder.png" alt="" class="marquee__img"></div></div>
       </div>
     </div>
     <p class="showcase__note wrap">Placeholder designs shown &ndash; swap in real sends anytime.</p>
@@ -173,52 +173,88 @@
 
   <!-- ============ PROCESS ============ -->
   <section class="process" id="process">
-    <div class="wrap">
-      <p class="eyebrow">Our process</p>
-      <h2 class="section-title">From audit to<br>always-on revenue</h2>
+    <div class="wrap process__layout">
+      <div class="process__main">
+        <p class="eyebrow">Our process</p>
+        <h2 class="section-title">From audit to<br>always-on revenue</h2>
 
-      <ol class="timeline">
-        <li class="timeline__item">
-          <div class="timeline__marker">
-            <span class="timeline__day">Day 1–5</span>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 1&ndash;3</span>
+            </div>
+            <div class="timeline__body">
+              <p class="timeline__kicker">Kick-off call</p>
+              <h3>Meet your team and map the plan</h3>
+              <p>We hop on a call to learn your products, margins, and customer journey, then set the roadmap for your audit and build.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 4&ndash;8</span>
+            </div>
+            <div class="timeline__body">
+              <p class="timeline__kicker">Get aligned</p>
+              <h3>Audit your store and flows</h3>
+              <p>We dig into your current email and SMS setup, list health, and existing flows to find your biggest quick wins and gaps.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 9&ndash;13</span>
+            </div>
+            <div class="timeline__body">
+              <p class="timeline__kicker">Strategy</p>
+              <h3>Map your flow and campaign strategy</h3>
+              <p>We build your flow architecture and campaign calendar, prioritized around the revenue opportunities the audit uncovered.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 14&ndash;25</span>
+            </div>
+            <div class="timeline__body">
+              <p class="timeline__kicker">Build the infrastructure</p>
+              <h3>Write, design, and deploy every email</h3>
+              <p>We write and design each email, then deploy your infrastructure inside Klaviyo, Omnisend, or your ESP of choice - tested against real orders before it ever goes live.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 30+</span>
+            </div>
+            <div class="timeline__body">
+              <p class="timeline__kicker">Reporting</p>
+              <h3>Test, report, repeat</h3>
+              <p>We track opens, clicks, and revenue monthly, then keep testing subject lines, timing, and offers to grow the number that matters.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="process__visual">
+        <div class="process__chart-card" id="process-chart">
+          <p class="process__chart-eyebrow">Revenue ramp</p>
+          <p class="process__chart-title">What the rollout typically looks like</p>
+          <svg class="process__chart-svg" viewBox="0 0 300 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="16" y1="146" x2="284" y2="146" stroke="var(--paper-line)" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="16" y2="146" stroke="var(--paper-line)" stroke-width="1"></line>
+            <path class="process__chart-path" d="M16,140 C70,138 110,132 150,104 C190,76 220,40 284,18" pathLength="1"></path>
+            <circle class="process__chart-dot" r="4.5">
+              <animateMotion dur="4.5s" repeatCount="indefinite" path="M16,140 C70,138 110,132 150,104 C190,76 220,40 284,18"></animateMotion>
+            </circle>
+          </svg>
+          <div class="process__chart-labels">
+            <span>Day 1</span>
+            <span>Day 15</span>
+            <span>Day 30+</span>
           </div>
-          <div class="timeline__body">
-            <p class="timeline__kicker">Get aligned</p>
-            <h3>Audit your store and flows</h3>
-            <p>We learn your products, margins, and customer journey, then audit your current email and SMS setup for quick wins and gaps.</p>
+          <div class="process__chart-foot">
+            <span>Projected new revenue by day 30</span>
+            <b class="process__chart-num" data-count="42" data-suffix="K" data-prefix="$">$0</b>
           </div>
-        </li>
-        <li class="timeline__item">
-          <div class="timeline__marker">
-            <span class="timeline__day">Day 5–15</span>
-          </div>
-          <div class="timeline__body">
-            <p class="timeline__kicker">Build the infrastructure</p>
-            <h3>Write and design every flow</h3>
-            <p>We map your flow architecture and campaign calendar, then write and design each email to match your brand and your buyer.</p>
-          </div>
-        </li>
-        <li class="timeline__item">
-          <div class="timeline__marker">
-            <span class="timeline__day">Day 15</span>
-          </div>
-          <div class="timeline__body">
-            <p class="timeline__kicker">Launch</p>
-            <h3>Turn it on</h3>
-            <p>We deploy your infrastructure inside Klaviyo, Omnisend, or your ESP of choice - tested against real orders before it ever goes live.</p>
-          </div>
-        </li>
-        <li class="timeline__item">
-          <div class="timeline__marker">
-            <span class="timeline__day">Day 15+</span>
-          </div>
-          <div class="timeline__body">
-            <p class="timeline__kicker">Optimize</p>
-            <h3>Test, report, repeat</h3>
-            <p>We track opens, clicks, and revenue weekly, then keep testing subject lines, timing, and offers to grow the number that matters.</p>
-          </div>
-        </li>
-      </ol>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -239,10 +275,22 @@
       <div class="book__panel">
         <p class="book__panel-eyebrow">Ready when you are</p>
         <p class="book__panel-title">20 minutes. Your store, your numbers.</p>
-        <div class="book__calendar">
-          <!-- Google Calendar Appointment Scheduling begin -->
-          <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2ubPj6Zw4zMgyMW4Az5XWJasxuhVxRu-rlHyKudvLveuBVtR2n7gdJ2VRs7BFWPFDXAXetQWBY?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-          <!-- end Google Calendar Appointment Scheduling -->
+        <div class="book__calendar" id="calendar">
+          <!-- Cal inline embed code begins -->
+          <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-email-marketing-audit-30min"></div>
+          <script type="text/javascript">
+            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "email-marketing-audit-30min", {origin:"https://app.cal.com"});
+            Cal.config = Cal.config || {};
+            Cal.config.forwardQueryParams = true;
+            Cal.ns["email-marketing-audit-30min"]("inline", {
+              elementOrSelector:"#my-cal-inline-email-marketing-audit-30min",
+              config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+              calLink: "mailcapital/email-marketing-audit-30min",
+            });
+            Cal.ns["email-marketing-audit-30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+          </script>
+          <!-- Cal inline embed code ends -->
         </div>
         <p class="book__panel-note">Prefer email? <a href="mailto:hello@mailcapital.marketing">hello@mailcapital.marketing</a></p>
       </div>
@@ -255,7 +303,7 @@
 <footer class="footer">
   <div class="wrap">
     <h2 class="footer__cta">Let's build the infrastructure<br>your list is missing.</h2>
-    <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
+    <a href="#calendar" class="btn btn--primary">Get Your Free Audit</a>
 
     <div class="footer__row">
       <a href="#top" class="nav__logo nav__logo--footer">
