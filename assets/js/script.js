@@ -180,3 +180,46 @@ document.querySelectorAll('.nav__logo, .nav__links a[href="#top"]').forEach(link
     });
   });
 });
+
+// ===========================================================
+// HERO REVENUE LEAK CALCULATOR
+// ===========================================================
+const slider = document.getElementById('rev-slider');
+const displayVal = document.getElementById('calc-display-val');
+
+const itemWelcome = document.getElementById('item-welcome');
+const itemCart = document.getElementById('item-cart');
+const itemPost = document.getElementById('item-post');
+const itemWinback = document.getElementById('item-winback');
+const itemVip = document.getElementById('item-vip');
+const receiptTotal = document.getElementById('receipt-total');
+
+function formatCurrency(val) {
+  return '$' + Math.round(val).toLocaleString('en-US');
+}
+
+function updateCalculator(revenue) {
+  // Estimated recovery percentages based on standard DTC benchmarks
+  const welcome = revenue * 0.032;  // 3.2%
+  const cart = revenue * 0.065;     // 6.5%
+  const post = revenue * 0.021;     // 2.1%
+  const winback = revenue * 0.027;  // 2.7%
+  const vip = revenue * 0.045;      // 4.5%
+  const total = welcome + cart + post + winback + vip;
+
+  if (displayVal) displayVal.textContent = '$' + Number(revenue).toLocaleString('en-US') + '/mo';
+  if (itemWelcome) itemWelcome.textContent = formatCurrency(welcome);
+  if (itemCart) itemCart.textContent = formatCurrency(cart);
+  if (itemPost) itemPost.textContent = formatCurrency(post);
+  if (itemWinback) itemWinback.textContent = formatCurrency(winback);
+  if (itemVip) itemVip.textContent = formatCurrency(vip);
+  if (receiptTotal) receiptTotal.textContent = formatCurrency(total);
+}
+
+if (slider) {
+  slider.addEventListener('input', (e) => {
+    updateCalculator(e.target.value);
+  });
+  // Initialize on load
+  updateCalculator(slider.value);
+}
