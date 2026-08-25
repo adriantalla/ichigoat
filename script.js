@@ -91,7 +91,7 @@ function runProcessChartAnimation() {
     if (prefersReducedMotion) {
       path.style.strokeDashoffset = '0';
     } else {
-      path.animate(
+      const anim = path.animate(
         [
           { strokeDashoffset: length },
           { strokeDashoffset: 0 }
@@ -99,9 +99,14 @@ function runProcessChartAnimation() {
         { 
           duration: 6500, 
           easing: 'ease-in-out',
+          iterations: 1,
           fill: 'forwards' 
         }
       );
+      // Hard-lock the final style when finished so it never reverts
+      anim.onfinish = () => {
+        path.style.strokeDashoffset = '0';
+      };
     }
   }
 }
