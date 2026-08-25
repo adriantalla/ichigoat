@@ -155,3 +155,13 @@ const processChartEl = document.getElementById('process-chart');
 if (receiptEl) observer.observe(receiptEl);
 if (statsEl) observer.observe(statsEl);
 if (processChartEl) observer.observe(processChartEl);
+
+document.querySelectorAll('.nav__logo').forEach(logo => {
+  logo.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
+  });
+});
