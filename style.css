@@ -252,8 +252,8 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
     justify-content: space-between !important;
   }
 
-  /* --- Top-Left Liquid Glass Logo (Icon Only, Enlarged) --- */
-  .nav__logo {
+/* --- Top-Left Liquid Glass Logo (Header Only) --- */
+  .nav .nav__logo {
     pointer-events: auto !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -271,13 +271,40 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
     padding: 0 !important;
   }
 
-  .nav__logo-img {
+  .nav .nav__logo-img {
     width: 26px !important;
     height: 26px !important;
   }
 
-  .nav__logo-text {
+  .nav .nav__logo-text {
     display: none !important;
+  }
+
+  /* --- Reset Footer Logo to Normal on Mobile --- */
+  .nav__logo--footer {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    color: var(--paper) !important;
+  }
+
+  .nav__logo--footer .nav__logo-img {
+    width: 26px !important;
+    height: 26px !important;
+    display: block !important;
+  }
+
+  .nav__logo--footer .nav__logo-text {
+    display: inline-block !important;
   }
 
   /* --- Top-Right Liquid Glass CTA Pill --- */
