@@ -79,10 +79,12 @@ function runProcessChartAnimation() {
     const to = Number(el.dataset.count);
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
-    animateValue(el, { to, duration: 2500, prefix, suffix });
+    animateValue(el, { to, duration: 6500, prefix, suffix });
   });
 
   const path = document.getElementById('chart-path');
+  const dotMotion = document.querySelector('#chart-dot animateMotion');
+
   if (path && typeof path.getTotalLength === 'function') {
     const length = path.getTotalLength();
     path.style.strokeDasharray = String(length);
@@ -98,15 +100,18 @@ function runProcessChartAnimation() {
         ],
         { 
           duration: 6500, 
-          easing: 'ease-in-out',
+          easing: 'linear',
           iterations: 1,
           fill: 'forwards' 
         }
       );
-      // Hard-lock the final style when finished so it never reverts
       anim.onfinish = () => {
         path.style.strokeDashoffset = '0';
       };
+
+      if (dotMotion && typeof dotMotion.beginElement === 'function') {
+        dotMotion.beginElement();
+      }
     }
   }
 }
