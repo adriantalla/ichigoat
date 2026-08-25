@@ -252,7 +252,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
     justify-content: space-between !important;
   }
 
-/* --- Top-Left Liquid Glass Logo (Header Only) --- */
+  /* --- Top-Left Liquid Glass Logo (Header Only) --- */
   .nav .nav__logo {
     pointer-events: auto !important;
     display: inline-flex !important;
@@ -576,7 +576,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .card p{ margin:0; font-size: 14px; color: var(--ink-text-70); }
 
 /* ===========================================================
-   EMAIL DESIGN SHOWCASE / MARQUEE
+   EMAIL DESIGN SHOWCASE (Manual Mouse-Wheel Scroll)
 =========================================================== */
 .showcase{ padding: 28px 0 72px; }
 .showcase .section-title{ margin-bottom: 32px; }
@@ -614,26 +614,20 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   position: relative;
   width: 100%;
   height: 440px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;          /* Enables manual mouse-wheel / trackpad scroll */
+  overscroll-behavior: contain; /* Prevents whole page scrolling when edge is reached */
+  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
+}
+.marquee__frame::-webkit-scrollbar{
+  display: none;             /* Chrome, Safari, Opera */
 }
 .marquee__img{
-  position: absolute;
-  top: 0; 
-  left: 0;
   width: 100%;
   height: auto;
   display: block;
-  transform: translateY(0);
-  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
-}
-/* Scrolls image to reveal full email on hover */
-.marquee__card:hover .marquee__img{
-  transform: translateY(calc(-100% + 440px));
-}
-@keyframes pan-vertical{
-  0%, 12%{ transform: translateY(0); }
-  88%, 100%{ transform: translateY(var(--pan-distance, 0px)); }
+  pointer-events: none;      /* Smooth scrolling without accidental image dragging */
 }
 .showcase__note{
   margin: 22px auto 0;
@@ -773,7 +767,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .book{ background: var(--ink); color: var(--paper); padding: 72px 0; }
 .book__grid{
   display: grid;
-  grid-template-columns: 1.05fr .95fr; /* Restored original balanced columns */
+  grid-template-columns: 1.05fr .95fr; /* Restored balanced layout */
   gap: 48px;
   align-items: start;
 }
