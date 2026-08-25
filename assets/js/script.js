@@ -100,8 +100,8 @@ function runProcessChartAnimation() {
         ],
         { 
           duration: 6500, 
-          easing: 'linear',
-          iterations: 1,
+          easing: 'linear', 
+          iterations: 1, 
           fill: 'forwards' 
         }
       );
@@ -161,23 +161,16 @@ if (receiptEl) observer.observe(receiptEl);
 if (statsEl) observer.observe(statsEl);
 if (processChartEl) observer.observe(processChartEl);
 
-document.querySelectorAll('.nav__logo').forEach(logo => {
-  logo.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: prefersReducedMotion ? 'auto' : 'smooth'
-    });
-  });
-});
-
-document.querySelectorAll('.nav__logo, .nav__links a[href="#top"]').forEach(link => {
+// Smooth scroll to top and set URL hash to #home
+document.querySelectorAll('.nav__logo, .nav__links a[href="#home"]').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
+    history.pushState(null, '', '#home');
     window.scrollTo({
       top: 0,
       behavior: prefersReducedMotion ? 'auto' : 'smooth'
     });
+    highlightNav();
   });
 });
 
@@ -193,10 +186,6 @@ const itemPost = document.getElementById('item-post');
 const itemWinback = document.getElementById('item-winback');
 const itemVip = document.getElementById('item-vip');
 const receiptTotal = document.getElementById('receipt-total');
-
-function formatCurrency(val) {
-  return '$' + Math.round(val).toLocaleString('en-US');
-}
 
 function updateCalculator(revenue) {
   // Estimated recovery percentages based on standard DTC benchmarks
@@ -228,7 +217,7 @@ if (slider) {
 // ACTIVE NAVIGATION HIGHLIGHT ON SCROLL
 // ===========================================================
 const sections = document.querySelectorAll('section[id], header[id]');
-const navLinks = document.querySelectorAll('.nav__links .nav__link');
+const navLinkElements = document.querySelectorAll('.nav__links .nav__link');
 
 function highlightNav() {
   let currentSectionId = 'home';
@@ -242,7 +231,7 @@ function highlightNav() {
     }
   });
 
-  navLinks.forEach((link) => {
+  navLinkElements.forEach((link) => {
     link.classList.remove('active');
     const href = link.getAttribute('href');
     if (href === `#${currentSectionId}` || (href === '#showcase' && currentSectionId === 'showcase')) {
