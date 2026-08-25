@@ -79,7 +79,7 @@ function runProcessChartAnimation() {
     const to = Number(el.dataset.count);
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
-    animateValue(el, { to, duration: 1300, prefix, suffix });
+    animateValue(el, { to, duration: 2500, prefix, suffix });
   });
 
   const path = document.getElementById('chart-path');
@@ -94,10 +94,13 @@ function runProcessChartAnimation() {
       path.animate(
         [
           { strokeDashoffset: length },
-          { strokeDashoffset: 0, offset: 0.7 },
           { strokeDashoffset: 0 }
         ],
-        { duration: 4500, iterations: Infinity }
+        { 
+          duration: 6500, 
+          easing: 'ease-in-out',
+          fill: 'forwards' 
+        }
       );
     }
   }
