@@ -347,7 +347,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
     transform: scale(0.95) !important;
   }
 
-  /* --- Bottom Floating Liquid Glass Dock (Moved Lower) --- */
+  /* --- Bottom Floating Liquid Glass Dock --- */
   .nav__links {
     position: fixed !important;
     inset: auto auto calc(10px + env(safe-area-inset-bottom, 0px)) 50% !important;
@@ -628,6 +628,34 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 
 /* ===========================================================
+   RESPONSIVE
+=========================================================== */
+@media (max-width: 900px){
+  .hero{
+    padding-top: 96px;
+    padding-bottom: 56px;
+  }
+  .hero__grid{ 
+    grid-template-columns: 1fr; 
+    gap: 36px;
+  }
+  .hero__visual{ 
+    order: 2; 
+  }
+  .hero__visual-wrap{
+    max-width: 320px;
+  }
+  .receipt{ 
+    transform: rotate(0deg); 
+    margin: 0 auto;
+  }
+  .stats__row{ grid-template-columns: 1fr; gap: 26px; }
+  .cards{ grid-template-columns: repeat(2, 1fr); }
+  .book__grid{ grid-template-columns: 1fr; }
+  .timeline__item{ grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* ===========================================================
    STATS
 =========================================================== */
 .stats{ background: var(--ink); border-top: 1px solid var(--ink-line); padding: 56px 0 48px; }
@@ -717,19 +745,19 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   width: 100%;
   height: 440px;
   overflow-x: hidden;
-  overflow-y: auto;          /* Enables manual mouse-wheel / trackpad scroll */
-  overscroll-behavior: contain; /* Prevents whole page scrolling when edge is reached */
-  scrollbar-width: none;     /* Firefox */
-  -ms-overflow-style: none;  /* IE/Edge */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .marquee__frame::-webkit-scrollbar{
-  display: none;             /* Chrome, Safari, Opera */
+  display: none;
 }
 .marquee__img{
   width: 100%;
   height: auto;
   display: block;
-  pointer-events: none;      /* Smooth scrolling without accidental image dragging */
+  pointer-events: none;
 }
 .showcase__note{
   margin: 22px auto 0;
@@ -764,7 +792,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 .process__visual{
   position: sticky;
-  top: 96px; /* Offset below sticky nav */
+  top: 96px;
 }
 .process__chart-card{
   background: var(--paper-raised);
@@ -772,7 +800,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   border-radius: var(--radius);
   padding: 26px 24px 22px;
   box-shadow: 0 24px 46px -30px rgba(20,23,31,.3);
-  transform: rotate(-1.5deg); /* Subtle card tilt */
+  transform: rotate(-1.5deg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .process__chart-card:hover{
@@ -869,7 +897,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .book{ background: var(--ink); color: var(--paper); padding: 72px 0; }
 .book__grid{
   display: grid;
-  grid-template-columns: 1.05fr .95fr; /* Restored balanced layout */
+  grid-template-columns: 1.05fr .95fr;
   gap: 48px;
   align-items: start;
 }
@@ -924,7 +952,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .footer{ 
   background: var(--ink); 
   color: var(--paper); 
-  padding: 36px 0 calc(90px + env(safe-area-inset-bottom, 0px)); /* Clearance for floating dock */
+  padding: 36px 0 calc(90px + env(safe-area-inset-bottom, 0px));
   text-align: center; 
   border-top: 1px solid var(--ink-line); 
 }
@@ -957,7 +985,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 =========================================================== */
 @media (max-width: 900px){
   .hero{
-    padding-top: 96px; /* Clean clearance below mobile top nav */
+    padding-top: 96px;
     padding-bottom: 56px;
   }
   .hero__grid{ 
