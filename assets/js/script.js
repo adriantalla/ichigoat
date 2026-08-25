@@ -223,3 +223,33 @@ if (slider) {
   // Initialize on load
   updateCalculator(slider.value);
 }
+
+// ===========================================================
+// ACTIVE NAVIGATION HIGHLIGHT ON SCROLL
+// ===========================================================
+const sections = document.querySelectorAll('section[id], header[id]');
+const navLinks = document.querySelectorAll('.nav__links .nav__link');
+
+function highlightNav() {
+  let currentSectionId = 'home';
+  const scrollPosition = window.scrollY + 180; // Trigger line offset
+
+  sections.forEach((section) => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    if (scrollPosition >= top && scrollPosition < top + height) {
+      currentSectionId = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    if (href === `#${currentSectionId}` || (href === '#showcase' && currentSectionId === 'showcase')) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', highlightNav, { passive: true });
+window.addEventListener('load', highlightNav);
