@@ -408,7 +408,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 .process__visual{
   position: sticky;
-  top: 132px;
+  top: 96px;
 }
 .process__chart-card{
   background: var(--paper-raised);
