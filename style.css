@@ -505,10 +505,10 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 =========================================================== */
 .book{ background: var(--ink); color: var(--paper); padding: 72px 0; }
 .book__grid{
-  display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 48px;
-  align-items:start;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr; /* Shifted ratio to give the panel ~57% of the grid */
+  gap: 40px;
+  align-items: start;
 }
 .book__sub{ color: var(--paper-text-70); font-size: 16px; max-width: 440px; margin: 0 0 22px; }
 .checklist li{
