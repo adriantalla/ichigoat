@@ -84,7 +84,7 @@
       <div class="hero__copy">
         <p class="eyebrow eyebrow--light">Email &amp; SMS marketing infrastructure</p>
         <h1 class="hero__title">
-          $30K–$140K in new monthly revenue in 90 days -
+          $30K–$140K in new monthly revenue in 90 days —
           <span class="hero__title-accent">built from the list you already have.</span>
         </h1>
         <p class="hero__sub">
@@ -92,6 +92,30 @@
           whichever email and SMS platform you're already running. No contracts.
           No retainers. You own everything we build.
         </p>
+
+        <!-- Interactive Revenue Slider -->
+        <div class="calc-box">
+          <div class="calc-box__head">
+            <span class="calc-box__label">Your Current Monthly Store Revenue:</span>
+            <span class="calc-box__val" id="calc-display-val">$100,000/mo</span>
+          </div>
+          <input 
+            type="range" 
+            id="rev-slider" 
+            class="calc-slider" 
+            min="20000" 
+            max="500000" 
+            step="5000" 
+            value="100000" 
+            aria-label="Monthly revenue slider"
+          >
+          <div class="calc-box__ticks">
+            <span>$20k/mo</span>
+            <span>$250k/mo</span>
+            <span>$500k+/mo</span>
+          </div>
+        </div>
+
         <div class="hero__actions">
           <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
           <a href="#services" class="btn btn--ghost">See what's included</a>
@@ -100,25 +124,54 @@
       </div>
 
       <div class="hero__visual" aria-hidden="false">
-        <div class="receipt" id="receipt">
-          <div class="receipt__head">
-            <span class="receipt__brand">MAILCAPITAL</span>
-            <span class="receipt__label">Revenue Receipt</span>
-            <span class="receipt__sub">Attributed to email + SMS · This month</span>
+        <div class="hero__visual-wrap" id="hero-visual-wrap">
+          <!-- Floating Proof Badges -->
+          <div class="proof-badge proof-badge--top">
+            <span class="proof-badge__dot"></span>
+            <span>⚡ Live in 15 Days · No Retainers</span>
           </div>
-          <ul class="receipt__lines" id="receipt-lines">
-            <li><span>Welcome Flow</span><b data-amount="1304">$0</b></li>
-            <li><span>Abandoned Cart</span><b data-amount="3410">$0</b></li>
-            <li><span>Post&#8309;Purchase</span><b data-amount="860">$0</b></li>
-            <li><span>Win&#8309;Back Flow</span><b data-amount="1090">$0</b></li>
-            <li><span>VIP Campaign</span><b data-amount="3050">$0</b></li>
-          </ul>
-          <div class="receipt__divider" aria-hidden="true"></div>
-          <div class="receipt__total">
-            <span>Total this month</span>
-            <b id="receipt-total" data-amount="8614">$0</b>
+
+          <div class="proof-badge proof-badge--bottom">
+            <span class="proof-badge__icon">📈</span>
+            <span>Avg. <strong>+28% to +35%</strong> Flow Revenue Lift</span>
           </div>
-          <p class="receipt__fine">*Illustrative flow revenue from a mid-size DTC client</p>
+
+          <!-- Dynamic Receipt -->
+          <div class="receipt" id="receipt">
+            <div class="receipt__head">
+              <span class="receipt__brand">MAILCAPITAL</span>
+              <span class="receipt__label">Estimated Monthly Recovery</span>
+              <span class="receipt__sub">Attributed to optimized flows</span>
+            </div>
+            <ul class="receipt__lines" id="receipt-lines">
+              <li>
+                <span class="receipt__item-name"><span class="pulse-dot"></span>Welcome Flow</span>
+                <b id="item-welcome">$3,200</b>
+              </li>
+              <li>
+                <span class="receipt__item-name"><span class="pulse-dot"></span>Abandoned Cart</span>
+                <b id="item-cart">$6,500</b>
+              </li>
+              <li>
+                <span class="receipt__item-name"><span class="pulse-dot"></span>Post‑Purchase</span>
+                <b id="item-post">$2,100</b>
+              </li>
+              <li>
+                <span class="receipt__item-name"><span class="pulse-dot"></span>Win‑Back Flow</span>
+                <b id="item-winback">$2,700</b>
+              </li>
+              <li>
+                <span class="receipt__item-name"><span class="pulse-dot"></span>VIP &amp; Browse</span>
+                <b id="item-vip">$4,500</b>
+              </li>
+            </ul>
+            <div class="receipt__divider" aria-hidden="true"></div>
+            <div class="receipt__total">
+              <span>Est. Total Leaked / Mo</span>
+              <b id="receipt-total">$19,000</b>
+            </div>
+            <p class="receipt__fine">*Estimated monthly recoverable flow revenue</p>
+          </div>
         </div>
       </div>
     </div>
