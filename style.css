@@ -210,140 +210,141 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 
 /* ===========================================================
-   NAV (Mobile View - Apple Music Liquid Glass Dock & Top Bar)
+   NAV (Mobile & Tablet View - Apple Music Liquid Glass Dock)
 =========================================================== */
 @media (max-width: 768px) {
   .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: transparent;
-    border-bottom: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    pointer-events: none;
-    z-index: 9999;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: transparent !important;
+    border-bottom: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    pointer-events: none !important;
+    z-index: 9999 !important;
   }
 
   .nav__row {
-    height: 72px;
-    padding: 12px 18px 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    height: 72px !important;
+    padding: 12px 18px 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 
   /* Top-Left Liquid Glass Logo Pill */
   .nav__logo {
-    pointer-events: auto;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(24px) saturate(190%);
-    -webkit-backdrop-filter: blur(24px) saturate(190%);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 999px;
-    padding: 6px 14px 6px 8px;
+    pointer-events: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    backdrop-filter: blur(24px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 999px !important;
+    padding: 6px 14px 6px 8px !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
                 inset 0 1px 1.5px rgba(255, 255, 255, 0.6),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
-    color: #fff;
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2) !important;
+    color: #fff !important;
   }
 
   .nav__logo-img {
-    width: 22px;
-    height: 22px;
+    width: 22px !important;
+    height: 22px !important;
   }
 
   .nav__logo-text {
-    display: inline-block;
-    font-size: 13.5px;
-    font-weight: 700;
+    display: inline-block !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
   }
 
   /* Top-Right Liquid Glass CTA */
   .nav__cta {
-    pointer-events: auto;
-    background: rgba(255, 90, 54, 0.76);
-    color: #ffffff;
-    backdrop-filter: blur(24px) saturate(200%);
-    -webkit-backdrop-filter: blur(24px) saturate(200%);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 999px;
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 600;
+    pointer-events: auto !important;
+    background: rgba(255, 90, 54, 0.76) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(24px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.45) !important;
+    border-radius: 999px !important;
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
     box-shadow: 0 10px 28px rgba(255, 90, 54, 0.35),
                 inset 0 1px 2px rgba(255, 255, 255, 0.75),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.25);
+                inset 0 -1px 2px rgba(0, 0, 0, 0.25) !important;
   }
 
   .nav__cta:hover {
-    background: rgba(225, 74, 41, 0.88);
+    background: rgba(225, 74, 41, 0.88) !important;
   }
 
   /* Bottom Floating Liquid Glass Dock */
   .nav__links {
-    position: fixed;
-    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 36px);
-    max-width: 380px;
-    padding: 6px 10px;
+    position: fixed !important;
+    inset: auto auto calc(20px + env(safe-area-inset-bottom, 0px)) 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 36px) !important;
+    max-width: 380px !important;
+    padding: 6px 10px !important;
     display: flex !important;
-    justify-content: space-around;
-    align-items: center;
-    gap: 4px;
-    background: rgba(20, 23, 31, 0.7);
-    backdrop-filter: blur(30px) saturate(210%);
-    -webkit-backdrop-filter: blur(30px) saturate(210%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 9999px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 4px !important;
+    background: rgba(20, 23, 31, 0.7) !important;
+    backdrop-filter: blur(30px) saturate(210%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(210%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 9999px !important;
     box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.55),
                 inset 0 1px 2px rgba(255, 255, 255, 0.35),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.3);
-    pointer-events: auto;
-    z-index: 99999;
+                inset 0 -1px 2px rgba(0, 0, 0, 0.3) !important;
+    z-index: 99999 !important;
   }
 
   /* Dock Item Styling (Icon + Label Vertical Stack) */
   .nav__link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    padding: 6px 8px;
-    min-width: 50px;
-    border-radius: 999px;
-    color: rgba(239, 237, 226, 0.75);
-    font-size: 10px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.15s ease;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    padding: 6px 8px !important;
+    min-width: 50px !important;
+    border-radius: 999px !important;
+    color: rgba(239, 237, 226, 0.75) !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.15s ease !important;
   }
 
   /* Show Icons only on Mobile Dock */
   .nav__icon {
     display: block !important;
-    width: 20px;
-    height: 20px;
-    stroke-width: 2.1;
+    width: 20px !important;
+    height: 20px !important;
+    stroke-width: 2.1 !important;
   }
 
   .nav__label {
-    display: block;
-    line-height: 1;
+    display: block !important;
+    line-height: 1 !important;
   }
 
   .nav__link:active {
-    background: rgba(255, 255, 255, 0.12);
-    color: var(--flash);
-    transform: scale(0.92);
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: var(--flash) !important;
+    transform: scale(0.92) !important;
   }
 }
 
@@ -787,4 +788,9 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   .cards{ grid-template-columns: repeat(2, 1fr); }
   .book__grid{ grid-template-columns: 1fr; }
   .timeline__item{ grid-template-columns: 1fr; gap: 12px; }
+}
+
+@media (max-width: 720px){
+  .cards{ grid-template-columns: 1fr; }
+  .footer__row{ flex-direction: column; gap: 18px; align-items:flex-start; }
 }
