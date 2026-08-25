@@ -165,3 +165,13 @@ document.querySelectorAll('.nav__logo').forEach(logo => {
     });
   });
 });
+
+document.querySelectorAll('.nav__logo, .nav__links a[href="#top"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
+  });
+});
