@@ -81,6 +81,26 @@ function runProcessChartAnimation() {
     const suffix = el.dataset.suffix || '';
     animateValue(el, { to, duration: 1300, prefix, suffix });
   });
+
+  const path = document.getElementById('chart-path');
+  if (path && typeof path.getTotalLength === 'function') {
+    const length = path.getTotalLength();
+    path.style.strokeDasharray = String(length);
+    path.style.strokeDashoffset = String(length);
+
+    if (prefersReducedMotion) {
+      path.style.strokeDashoffset = '0';
+    } else {
+      path.animate(
+        [
+          { strokeDashoffset: length },
+          { strokeDashoffset: 0, offset: 0.7 },
+          { strokeDashoffset: 0 }
+        ],
+        { duration: 4500, iterations: Infinity }
+      );
+    }
+  }
 }
 
 // ---------- Marquee vertical pan (reveals full email length inside each card) ----------
