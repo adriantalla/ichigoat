@@ -635,7 +635,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 .process__visual{
   position: sticky;
-  top: 72px;
+  top: 96px; /* Offset below sticky nav */
 }
 .process__chart-card{
   background: var(--paper-raised);
@@ -643,6 +643,12 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   border-radius: var(--radius);
   padding: 26px 24px 22px;
   box-shadow: 0 24px 46px -30px rgba(20,23,31,.3);
+  transform: rotate(-1.5deg); /* Subtle card tilt */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.process__chart-card:hover{
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow: 0 28px 52px -28px rgba(20,23,31,.4);
 }
 .process__chart-eyebrow{
   font-family: var(--font-mono);
