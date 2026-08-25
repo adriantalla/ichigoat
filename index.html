@@ -1,124 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MailCapital — Email &amp; SMS Infrastructure for DTC Brands</title>
-  <meta name="description" content="We build high-converting Klaviyo email & SMS flows, retention architecture, and automated lifecycle marketing for scaling eCommerce brands.">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MailCapital - Email &amp; SMS Infrastructure for eCommerce Brands</title>
+<meta name="description" content="MailCapital builds the abandoned cart, post-purchase, and win-back infrastructure eCommerce brands run on - live in 15 days. No contracts. Get a free audit.">
+<link rel="icon" href="assets/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-  <a href="#book" class="skip-link">Skip to booking</a>
+<body id="top">
 
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="top">
-    <div class="wrap nav__row">
-      <!-- Logo (Left on Desktop / Top-Left Liquid Glass on Mobile) -->
-      <a href="#top" class="nav__logo" aria-label="MailCapital home">
-        <img src="assets/images/logo.png" alt="MailCapital Logo" class="nav__logo-img">
-        <span class="nav__logo-text">MailCapital</span>
-      </a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-      <!-- Navigation Links (Right-aligned on Desktop / Bottom Glass Dock on Mobile) -->
-      <nav class="nav__links" id="nav-links" aria-label="Main Navigation">
-        <a href="#top" class="nav__link">
-          <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
-          <span class="nav__label">Home</span>
-        </a>
+<!-- ============ NAV ============ -->
+<header class="nav" id="top">
+  <div class="wrap nav__row">
+    <!-- Logo (Left on Desktop / Top-Left on Mobile) -->
+    <a href="#top" class="nav__logo" aria-label="MailCapital home">
+      <img src="assets/images/logo.png" alt="" class="nav__logo-img">
+      <span class="nav__logo-text">MailCapital</span>
+    </a>
 
-        <a href="#services" class="nav__link">
-          <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-          </svg>
-          <span class="nav__label">Services</span>
-        </a>
-
-        <a href="#showcase" class="nav__link">
-          <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-          </svg>
-          <span class="nav__label">Work</span>
-        </a>
-
-        <a href="#process" class="nav__link">
-          <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="6" y1="3" x2="6" y2="15"></line>
-            <circle cx="18" cy="6" r="3"></circle>
-            <circle cx="6" cy="18" r="3"></circle>
-            <path d="M18 9a9 9 0 0 1-9 9"></path>
-          </svg>
-          <span class="nav__label">Process</span>
-        </a>
-
-        <a href="#results" class="nav__link">
-          <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-            <polyline points="17 6 23 6 23 12"></polyline>
-          </svg>
-          <span class="nav__label">Results</span>
-        </a>
-      </nav>
-
-      <!-- Audit CTA (Full text on Desktop / Compact Pill with Icon on Mobile) -->
-      <a href="#book" class="nav__cta">
-        <svg class="nav__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-          <line x1="16" y1="2" x2="16" y2="6"></line>
-          <line x1="8" y1="2" x2="8" y2="6"></line>
-          <line x1="3" y1="10" x2="21" y2="10"></line>
+    <!-- Navigation Links (Pushed to the right alongside the CTA) -->
+    <nav class="nav__links" id="nav-links" aria-label="Main Navigation">
+      <a href="#top" class="nav__link">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
-        <span class="nav__cta-desktop">Get Your Free Audit</span>
-        <span class="nav__cta-mobile">Free Audit</span>
+        <span class="nav__label">Home</span>
       </a>
-    </div>
-  </header>
+
+      <a href="#services" class="nav__link">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <span class="nav__label">Services</span>
+      </a>
+
+      <a href="#showcase" class="nav__link">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <span class="nav__label">Work</span>
+      </a>
+
+      <a href="#process" class="nav__link">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="3" x2="6" y2="15"></line>
+          <circle cx="18" cy="6" r="3"></circle>
+          <circle cx="6" cy="18" r="3"></circle>
+          <path d="M18 9a9 9 0 0 1-9 9"></path>
+        </svg>
+        <span class="nav__label">Process</span>
+      </a>
+
+      <a href="#results" class="nav__link">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+          <polyline points="17 6 23 6 23 12"></polyline>
+        </svg>
+        <span class="nav__label">Results</span>
+      </a>
+    </nav>
+
+    <!-- Audit CTA -->
+    <a href="#book" class="nav__cta">
+      <svg class="nav__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      <span class="nav__cta-desktop">Get Your Free Audit</span>
+      <span class="nav__cta-mobile">Free Audit</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
 
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="wrap hero__grid">
-      <div class="hero__content">
-        <p class="eyebrow eyebrow--light">RETENTION ARCHITECTURE</p>
-        <h1 class="hero__title">Turn your inbox into a predictable <span class="hero__title-accent">growth engine</span></h1>
-        <p class="hero__sub">We build, manage, and scale the email &amp; SMS infrastructure that unlocks 30%–45% of total store revenue from repeat customers.</p>
+      <div class="hero__copy">
+        <p class="eyebrow eyebrow--light">Email &amp; SMS marketing infrastructure</p>
+        <h1 class="hero__title">
+          $30K–$140K in new monthly revenue in 90 days -
+          <span class="hero__title-accent">built from the list you already have.</span>
+        </h1>
+        <p class="hero__sub">
+          Abandoned cart, post-purchase, and win-back infrastructure, built for
+          whichever email and SMS platform you're already running. No contracts.
+          No retainers. You own everything we build.
+        </p>
         <div class="hero__actions">
           <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
-          <a href="#showcase" class="btn btn--ghost">View Our Work</a>
+          <a href="#services" class="btn btn--ghost">See what's included</a>
         </div>
-        <p class="hero__note">✦ Average 34% Klaviyo-attributed revenue in 90 days</p>
+        <p class="hero__note">Free 30-minute audit. No pitch deck.</p>
       </div>
 
-      <div class="hero__visual">
-        <div class="receipt" aria-hidden="true">
+      <div class="hero__visual" aria-hidden="false">
+        <div class="receipt" id="receipt">
           <div class="receipt__head">
-            <span class="receipt__brand">MAILCAPITAL // RETENTION</span>
-            <span class="receipt__label">STORE AUDIT SLIP</span>
-            <span class="receipt__sub">LIFECYCLE SUMMARY</span>
+            <span class="receipt__brand">MAILCAPITAL</span>
+            <span class="receipt__label">Revenue Receipt</span>
+            <span class="receipt__sub">Attributed to email + SMS · This month</span>
           </div>
-          <ul class="receipt__lines">
-            <li><span>WELCOME FLOW</span> <b>+42.8%</b></li>
-            <li><span>ABANDONED CART</span> <b>+31.4%</b></li>
-            <li><span>POST-PURCHASE</span> <b>+28.0%</b></li>
-            <li><span>VIP CAMPAIGNS</span> <b>+19.6%</b></li>
-            <li><span>WIN-BACK ARCH</span> <b>+14.2%</b></li>
+          <ul class="receipt__lines" id="receipt-lines">
+            <li><span>Welcome Flow</span><b data-amount="1304">$0</b></li>
+            <li><span>Abandoned Cart</span><b data-amount="3410">$0</b></li>
+            <li><span>Post&#8309;Purchase</span><b data-amount="860">$0</b></li>
+            <li><span>Win&#8309;Back Flow</span><b data-amount="1090">$0</b></li>
+            <li><span>VIP Campaign</span><b data-amount="3050">$0</b></li>
           </ul>
+          <div class="receipt__divider" aria-hidden="true"></div>
           <div class="receipt__total">
-            <span>TOTAL RETENTION LIFT</span>
-            <b>+$140,000</b>
+            <span>Total this month</span>
+            <b id="receipt-total" data-amount="8614">$0</b>
           </div>
-          <p class="receipt__fine">*ESTIMATED 90-DAY NEW ATTRIBUTED RUN-RATE</p>
+          <p class="receipt__fine">*Illustrative flow revenue from a mid-size DTC client</p>
         </div>
       </div>
     </div>
@@ -128,16 +136,16 @@
   <section class="stats" id="results">
     <div class="wrap stats__row">
       <div class="stat">
-        <span class="stat__num">35%+</span>
-        <p class="stat__label">Average store revenue generated through our Klaviyo systems</p>
+        <b class="stat__num" data-count="1.3" data-suffix="M+" data-prefix="$">$0</b>
+        <p class="stat__label">Revenue generated through email &amp; SMS flows and campaigns</p>
       </div>
       <div class="stat">
-        <span class="stat__num">$140K+</span>
-        <p class="stat__label">Projected new revenue unlocked across client pipelines in 90 days</p>
+        <b class="stat__num" data-count="15" data-suffix=" Days">0</b>
+        <p class="stat__label">Average time from audit to full infrastructure launch</p>
       </div>
       <div class="stat">
-        <span class="stat__num">4.8x</span>
-        <p class="stat__label">Average return on marketing investment across active accounts</p>
+        <b class="stat__num" data-count="2.0" data-suffix="M+">0</b>
+        <p class="stat__label">Flow and campaign emails sent and optimized</p>
       </div>
     </div>
   </section>
@@ -145,161 +153,153 @@
   <!-- ============ SERVICES ============ -->
   <section class="services" id="services">
     <div class="wrap">
-      <p class="eyebrow">WHAT WE DELIVER</p>
-      <h2 class="section-title">Full-stack lifecycle marketing designed to scale</h2>
+      <p class="eyebrow">What we do</p>
+      <h2 class="section-title">Everything your store needs<br>to sell through the inbox</h2>
+
       <div class="cards">
-        <div class="card">
-          <span class="card__tag">CORE SYSTEM</span>
-          <h3>Lifecycle Automation Flows</h3>
-          <p>Complete architecture: high-converting Welcome Series, Abandoned Checkout, Browse Abandonment, Customer Thank You, and Replenishment engines.</p>
-        </div>
-        <div class="card">
-          <span class="card__tag">CREATIVE &amp; COPY</span>
-          <h3>Direct-Response Email Design</h3>
-          <p>Custom mobile-first layouts, on-brand graphics, and conversion-engineered copy that drives immediate clicks without trigger spam filters.</p>
-        </div>
-        <div class="card">
-          <span class="card__tag">CAMPAIGN CADENCE</span>
-          <h3>Weekly Broadcast Strategy</h3>
-          <p>End-to-end promotional calendars, product drops, segment-targeted campaigns, and seasonal blitzes planned, built, and executed for you.</p>
-        </div>
+        <article class="card">
+          <span class="card__tag">01</span>
+          <h3>Email &amp; SMS Audit</h3>
+          <p>We dig into your AOV, LTV, and existing flows to find exactly where revenue is sitting unclaimed - then hand you a clear plan to fix it.</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">02</span>
+          <h3>List Growth &amp; Segmentation</h3>
+          <p>Better pop-ups, quizzes, and lead magnets to grow a list worth emailing - segmented so every message reaches the right shopper.</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">03</span>
+          <h3>Flow Builds</h3>
+          <p>Welcome, abandoned cart, browse abandonment, post-purchase, win-back, and VIP - 30–30 emails built to run quietly and keep selling.</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">04</span>
+          <h3>Campaign Calendar &amp; Design</h3>
+          <p>Weekly campaigns planned, written, and designed on-brand. You approve every send before it goes anywhere near your customers.</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">05</span>
+          <h3>Promotions &amp; Offer Strategy</h3>
+          <p>Sale cadence, bundles, and timing that move inventory without training your list to wait for the next discount.</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">06</span>
+          <h3>Deliverability &amp; Reporting</h3>
+          <p>We protect your sender reputation, keep you out of spam, and report on opens, clicks, and revenue - not vanity metrics.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ============ SHOWCASE / MARQUEE ============ -->
+  <!-- ============ EMAIL DESIGN SHOWCASE ============ -->
   <section class="showcase" id="showcase">
     <div class="wrap">
-      <p class="eyebrow">CREATIVE PORTFOLIO</p>
-      <h2 class="section-title">High-converting email designs in action</h2>
+      <p class="eyebrow">Some of the work</p>
+      <h2 class="section-title">Emails built to convert,<br>not just look nice</h2>
     </div>
 
-    <div class="marquee" aria-label="Recent design showcase">
-      <div class="marquee__track">
-        <div class="marquee__card">
-          <div class="marquee__frame">
-            <img src="assets/images/welcome.png" alt="Welcome Flow Email Design" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card">
-          <div class="marquee__frame">
-            <img src="assets/images/promo.png" alt="Promotional Email Design" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card">
-          <div class="marquee__frame">
-            <img src="assets/images/abandoned-cart.png" alt="Abandoned Cart Email Design" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card">
-          <div class="marquee__frame">
-            <img src="assets/images/post-purchase.png" alt="Post Purchase Email Design" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card">
-          <div class="marquee__frame">
-            <img src="assets/images/vip.png" alt="VIP Campaign Email Design" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card">
-          <div class="marquee__frame">
-            <img src="assets/images/win-back.png" alt="Customer Win-Back Email Design" class="marquee__img">
-          </div>
-        </div>
-
-        <!-- Duplicated for continuous marquee scroll loop -->
-        <div class="marquee__card" aria-hidden="true">
-          <div class="marquee__frame">
-            <img src="assets/images/welcome.png" alt="" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card" aria-hidden="true">
-          <div class="marquee__frame">
-            <img src="assets/images/promo.png" alt="" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card" aria-hidden="true">
-          <div class="marquee__frame">
-            <img src="assets/images/abandoned-cart.png" alt="" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card" aria-hidden="true">
-          <div class="marquee__frame">
-            <img src="assets/images/post-purchase.png" alt="" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card" aria-hidden="true">
-          <div class="marquee__frame">
-            <img src="assets/images/vip.png" alt="" class="marquee__img">
-          </div>
-        </div>
-        <div class="marquee__card" aria-hidden="true">
-          <div class="marquee__frame">
-            <img src="assets/images/win-back.png" alt="" class="marquee__img">
-          </div>
-        </div>
+    <div class="marquee" role="region" aria-label="Email design examples">
+      <div class="marquee__track" id="marquee-track">
+        <div class="marquee__card"><div class="marquee__frame"><img src="assets/images/welcome.png" alt="Welcome Flow email design" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="assets/images/abandoned-cart.png" alt="Abandoned Cart email design" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="assets/images/post-purchase.png" alt="Post-Purchase email design" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="assets/images/win-back.png" alt="Win-Back Flow email design" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="assets/images/vip.png" alt="VIP Campaign email design" class="marquee__img"></div></div>
+        <div class="marquee__card"><div class="marquee__frame"><img src="assets/images/promo.png" alt="Promo Campaign email design" class="marquee__img"></div></div>
+        <!-- duplicated for seamless loop -->
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="assets/images/welcome.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="assets/images/abandoned-cart.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="assets/images/post-purchase.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="assets/images/win-back.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="assets/images/vip.png" alt="" class="marquee__img"></div></div>
+        <div class="marquee__card" aria-hidden="true"><div class="marquee__frame"><img src="assets/images/promo.png" alt="" class="marquee__img"></div></div>
       </div>
     </div>
-    <p class="showcase__note">✦ Hover or tap any creative to pause scroll</p>
+    <p class="showcase__note wrap">Recent email infrastructure builds &ndash; custom designed for high conversion.</p>
   </section>
 
-  <!-- ============ PROCESS / REVENUE RAMP ============ -->
+  <!-- ============ PROCESS ============ -->
   <section class="process" id="process">
-    <div class="wrap">
-      <p class="eyebrow">HOW WE WORK</p>
-      <h2 class="section-title">The 90-day retention roadmap</h2>
-      
-      <div class="process__layout">
-        <div class="timeline">
-          <div class="timeline__item">
-            <div><span class="timeline__day">Days 1–30</span></div>
-            <div class="timeline__body">
-              <p class="timeline__kicker">FOUNDATION &amp; INFRASTRUCTURE</p>
-              <h3>Audit &amp; Core Flow Setup</h3>
-              <p>Full deliverability overhaul, DNS configuration, and building the essential revenue engines: Welcome Flow, Checkout Recovery, and Customer Thank You.</p>
-            </div>
-          </div>
+    <div class="wrap process__layout">
+      <div class="process__main">
+        <p class="eyebrow">Our process</p>
+        <h2 class="section-title">From audit to<br>always-on revenue</h2>
 
-          <div class="timeline__item">
-            <div><span class="timeline__day">Days 31–60</span></div>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 1&ndash;3</span>
+            </div>
             <div class="timeline__body">
-              <p class="timeline__kicker">EXPANSION &amp; SEGMENTATION</p>
-              <h3>Advanced Flows &amp; Weekly Campaigns</h3>
-              <p>Deployment of dynamic product recommendations, replenishment triggers, VIP tiers, predictive win-backs, and structured bi-weekly broadcast testing.</p>
+              <p class="timeline__kicker">Kick-off call</p>
+              <h3>Meet your team and map the plan</h3>
+              <p>We hop on a call to learn your products, margins, and customer journey, then set the roadmap for your audit and build.</p>
             </div>
-          </div>
-
-          <div class="timeline__item">
-            <div><span class="timeline__day">Days 61–90+</span></div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 4&ndash;8</span>
+            </div>
             <div class="timeline__body">
-              <p class="timeline__kicker">OPTIMIZATION &amp; SCALE</p>
-              <h3>Full-Scale Optimization</h3>
-              <p>Continuous multivariate testing on subject lines, send-time optimization, SMS list scaling, and deep cohort analysis to maximize lifetime customer value.</p>
+              <p class="timeline__kicker">Get aligned</p>
+              <h3>Audit your store and flows</h3>
+              <p>We dig into your current email and SMS setup, list health, and existing flows to find your biggest quick wins and gaps.</p>
             </div>
-          </div>
-        </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 9&ndash;13</span>
+            </div>
+            <div class="timeline__body">
+              <p class="timeline__kicker">Strategy</p>
+              <h3>Map your flow and campaign strategy</h3>
+              <p>We build your flow architecture and campaign calendar, prioritized around the revenue opportunities the audit uncovered.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 14&ndash;25</span>
+            </div>
+            <div class="timeline__body">
+              <p class="timeline__kicker">Build the infrastructure</p>
+              <h3>Write, design, and deploy every email</h3>
+              <p>We write and design each email, then deploy your infrastructure inside Klaviyo, Omnisend, or your ESP of choice - tested against real orders before it ever goes live.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__marker">
+              <span class="timeline__day">Day 30+</span>
+            </div>
+            <div class="timeline__body">
+              <p class="timeline__kicker">Reporting</p>
+              <h3>Test, report, repeat</h3>
+              <p>We track opens, clicks, and revenue monthly, then keep testing subject lines, timing, and offers to grow the number that matters.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
 
-        <div class="process__visual">
-          <div class="process__chart-card" id="process-chart">
-            <p class="process__chart-eyebrow">Revenue ramp</p>
-            <p class="process__chart-title">What the rollout typically looks like</p>
-            <svg class="process__chart-svg" viewBox="0 0 300 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <line x1="16" y1="146" x2="284" y2="146" stroke="var(--paper-line)" stroke-width="1"></line>
-              <line x1="16" y1="16" x2="16" y2="146" stroke="var(--paper-line)" stroke-width="1"></line>
-              <path class="process__chart-path" id="chart-path" d="M16,140 C70,138 110,132 150,104 C190,76 220,40 284,18"></path>
-              <circle id="chart-dot" class="process__chart-dot" cx="16" cy="140" r="4.5">
-                <animateMotion dur="6.5s" repeatCount="1" fill="freeze" path="M0,0 C54,-2 94,-8 134,-36 C174,-64 204,-100 268,-122"></animateMotion>
-              </circle>
-            </svg>
-            <div class="process__chart-labels">
-              <span>Day 30</span>
-              <span>Day 60</span>
-              <span>Day 90+</span>
-            </div>
-            <div class="process__chart-foot">
-              <span>Projected new revenue by day 90</span>
-              <b class="process__chart-num" data-count="140" data-suffix="K" data-prefix="$">$0</b>
-            </div>
+      <div class="process__visual">
+        <div class="process__chart-card" id="process-chart">
+          <p class="process__chart-eyebrow">Revenue ramp</p>
+          <p class="process__chart-title">What the rollout typically looks like</p>
+          <svg class="process__chart-svg" viewBox="0 0 300 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="16" y1="146" x2="284" y2="146" stroke="var(--paper-line)" stroke-width="1"></line>
+            <line x1="16" y1="16" x2="16" y2="146" stroke="var(--paper-line)" stroke-width="1"></line>
+            <path class="process__chart-path" id="chart-path" d="M16,140 C70,138 110,132 150,104 C190,76 220,40 284,18"></path>
+            <!-- Dot begins at starting coordinate (16, 140) and travels to the peak (284, 18) -->
+            <circle id="chart-dot" class="process__chart-dot" cx="16" cy="140" r="4.5">
+              <animateMotion dur="6.5s" repeatCount="1" fill="freeze" path="M0,0 C54,-2 94,-8 134,-36 C174,-64 204,-100 268,-122"></animateMotion>
+            </circle>
+          </svg>
+          <div class="process__chart-labels">
+            <span>Day 30</span>
+            <span>Day 60</span>
+            <span>Day 90+</span>
+          </div>
+          <div class="process__chart-foot">
+            <span>Projected new revenue by day 90</span>
+            <b class="process__chart-num" data-count="140" data-suffix="K" data-prefix="$">$0</b>
           </div>
         </div>
       </div>
@@ -310,66 +310,66 @@
   <section class="book" id="book">
     <div class="wrap book__grid">
       <div class="book__copy">
-        <p class="eyebrow eyebrow--light">LET'S BUILD YOUR ENGINE</p>
-        <h2 class="section-title section-title--light">Claim your free email &amp; SMS growth audit</h2>
-        <p class="book__sub">Book a 30-minute strategy call. We will review your existing Klaviyo setup and show you exact opportunities to lift monthly store revenue.</p>
-        
+        <p class="eyebrow eyebrow--light">No pitch. Just your numbers.</p>
+        <h2 class="section-title section-title--light">Get your free audit</h2>
+        <p class="book__sub">30 minutes on your store, not a script. If we can't find you real gaps, we'll tell you that too.</p>
         <ul class="checklist">
-          <li>Complete audit of your deliverability &amp; sender reputation</li>
-          <li>Identification of missed flow automations and revenue leaks</li>
-          <li>Actionable 90-day lifecycle roadmap customized to your store</li>
+          <li>We review your current flows and campaigns</li>
+          <li>We find your biggest revenue leaks</li>
+          <li>We map the flows you're missing</li>
+          <li>You get a custom plan and timeline, free</li>
         </ul>
-
-        <div class="book__copy-cta">
-          <p class="hero__note">✦ No pressure, pitch-free strategy session with our team</p>
-        </div>
+        <a href="#calendar" class="btn btn--primary book__copy-cta">Pick a Time</a>
       </div>
-
       <div class="book__panel">
-        <p class="book__panel-eyebrow">RESERVE A SLOT</p>
-        <h3 class="book__panel-title">Pick a date &amp; time that works</h3>
-        <div class="book__calendar">
-          <!-- Cal.com / Calendly Embed -->
-          <iframe 
-            src="https://cal.com" 
-            title="Book a strategy call"
-            width="100%" 
-            height="100%" 
-            frameborder="0"
-            loading="lazy">
-          </iframe>
+        <p class="book__panel-eyebrow">Ready when you are</p>
+        <p class="book__panel-title">30 minutes. Your store, your numbers.</p>
+        <div class="book__calendar" id="calendar">
+          <!-- Cal inline embed code begins -->
+          <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-email-marketing-audit-30min"></div>
+          <script type="text/javascript">
+            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "email-marketing-audit-30min", {origin:"https://app.cal.com"});
+            Cal.config = Cal.config || {};
+            Cal.config.forwardQueryParams = true;
+            Cal.ns["email-marketing-audit-30min"]("inline", {
+              elementOrSelector:"#my-cal-inline-email-marketing-audit-30min",
+              config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+              calLink: "mailcapital/email-marketing-audit-30min",
+            });
+            Cal.ns["email-marketing-audit-30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+          </script>
+          <!-- Cal inline embed code ends -->
         </div>
-        <p class="book__panel-note">Prefer email first? Reach us directly at <a href="mailto:growth@mailcapital.co">growth@mailcapital.co</a></p>
+        <p class="book__panel-note">Prefer email? <a href="mailto:hello@mailcapital.marketing">hello@mailcapital.marketing</a></p>
       </div>
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="wrap">
-      <p class="footer__cta">Ready to turn retention into your #1 growth channel?</p>
-      <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
+</main>
 
-      <div class="footer__row">
-        <a href="#top" class="nav__logo nav__logo--footer" aria-label="MailCapital home">
-          <img src="assets/images/logo.png" alt="MailCapital Logo" class="nav__logo-img">
-          <span class="nav__logo-text">MailCapital</span>
-        </a>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <h2 class="footer__cta">Let's build the infrastructure<br>your list is missing.</h2>
+    <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
 
-        <div class="footer__links">
-          <a href="#services">Services</a>
-          <a href="#showcase">Work</a>
-          <a href="#process">Process</a>
-          <a href="#results">Results</a>
-          <a href="#book">Book Call</a>
-        </div>
-      </div>
-
-      <p class="footer__legal">© 2026 MailCapital. All rights reserved. Built for scaling DTC e-commerce brands.</p>
+    <div class="footer__row">
+      <a href="#top" class="nav__logo nav__logo--footer">
+        <img src="assets/images/logo.png" alt="" class="nav__logo-img">
+        MailCapital
+      </a>
+      <nav class="footer__links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#results">Results</a>
+        <a href="mailto:hello@mailcapital.marketing">Contact</a>
+      </nav>
     </div>
-  </footer>
+    <p class="footer__legal">© <span id="year">2026</span> MailCapital. All rights reserved.</p>
+  </div>
+</footer>
 
-  <!-- Scripts -->
-  <script src="assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
