@@ -788,25 +788,3 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   .book__grid{ grid-template-columns: 1fr; }
   .timeline__item{ grid-template-columns: 1fr; gap: 12px; }
 }
-
-@media (max-width: 720px){
-  .nav__links{
-    position: fixed; inset: 56px 0 auto 0;
-    background: var(--paper);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    padding: 10px 28px 24px;
-    border-bottom: 1px solid var(--paper-line);
-    transform: translateY(-8px);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform .18s ease, opacity .18s ease;
-  }
-  .nav__links a{ padding: 10px 0; width:100%; }
-  .nav__links.is-open{ transform: translateY(0); opacity:1; pointer-events:auto; }
-  .nav__toggle{ display:flex; }
-  .nav__cta{ text-align:center; }
-  .cards{ grid-template-columns: 1fr; }
-  .footer__row{ flex-direction: column; gap: 16px; align-items:flex-start; }
-}
