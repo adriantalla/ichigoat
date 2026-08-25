@@ -74,6 +74,39 @@ function runStatsAnimation() {
   });
 }
 
+function runProcessChartAnimation() {
+  document.querySelectorAll('.process__chart-num[data-count]').forEach(el => {
+    const to = Number(el.dataset.count);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    animateValue(el, { to, duration: 1300, prefix, suffix });
+  });
+}
+
+// ---------- Marquee vertical pan (reveals full email length inside each card) ----------
+function setupMarqueePan() {
+  const imgs = document.querySelectorAll('.marquee__img');
+  imgs.forEach(img => {
+    const measure = () => {
+      const frame = img.parentElement;
+      if (!frame) return;
+      const frameHeight = frame.clientHeight;
+      const frameWidth = frame.clientWidth;
+      if (!img.naturalWidth || !frameWidth) return;
+      const displayedHeight = (frameWidth / img.naturalWidth) * img.naturalHeight;
+      const delta = displayedHeight - frameHeight;
+      img.style.setProperty('--pan-distance', delta > 0 ? `-${Math.round(delta)}px` : '0px');
+    };
+    if (img.complete) {
+      measure();
+    } else {
+      img.addEventListener('load', measure, { once: true });
+    }
+    window.addEventListener('resize', measure);
+  });
+}
+setupMarqueePan();
+
 // Trigger once elements enter the viewport
 const observed = new WeakSet();
 const observer = new IntersectionObserver((entries) => {
@@ -82,6 +115,7 @@ const observer = new IntersectionObserver((entries) => {
       observed.add(entry.target);
       if (entry.target.id === 'receipt') runReceiptAnimation();
       if (entry.target.classList.contains('stats')) runStatsAnimation();
+      if (entry.target.id === 'process-chart') runProcessChartAnimation();
       observer.unobserve(entry.target);
     }
   });
@@ -89,5 +123,7 @@ const observer = new IntersectionObserver((entries) => {
 
 const receiptEl = document.getElementById('receipt');
 const statsEl = document.querySelector('.stats');
+const processChartEl = document.getElementById('process-chart');
 if (receiptEl) observer.observe(receiptEl);
 if (statsEl) observer.observe(statsEl);
+if (processChartEl) observer.observe(processChartEl);
