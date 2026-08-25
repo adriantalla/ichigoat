@@ -29,7 +29,7 @@
 
 *, *::before, *::after{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
-section[id], div[id]{ scroll-margin-top: 132px; }
+section[id], div[id]{ scroll-margin-top: 96px; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   *, *::before, *::after{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
@@ -322,7 +322,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 /* ===========================================================
    EMAIL DESIGN SHOWCASE / MARQUEE
 =========================================================== */
-.showcase{ padding: 56px 0 100px; }
+.showcase{ padding: 36px 0 100px; }
 .showcase .section-title{ margin-bottom: 40px; }
 .marquee{
   overflow: hidden;
@@ -399,7 +399,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 /* ===========================================================
    PROCESS / TIMELINE
 =========================================================== */
-.process{ padding: 56px 0 110px; }
+.process{ padding: 36px 0 110px; }
 .process__layout{
   display: grid;
   grid-template-columns: 1.4fr 1fr;
