@@ -118,73 +118,74 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .btn--block{ width: 100%; }
 
 /* ===========================================================
-   NAV (Desktop Default - Kept to original design)
+   NAV (Desktop - Intact to Original Design)
 =========================================================== */
-.nav{
-  position: sticky; top:0; z-index: 100;
-  background: rgba(239,237,226,.86);
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(239, 237, 226, 0.86);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--paper-line);
 }
-.nav__row{
-  display: flex; 
-  align-items: center; 
+.nav__row {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   height: 76px;
 }
-.nav__logo{
-  display: flex; 
-  align-items: center; 
+.nav__logo {
+  display: flex;
+  align-items: center;
   gap: 10px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 19px;
 }
-.nav__logo-img{
-  width: 26px; 
+.nav__logo-img {
+  width: 26px;
   height: 26px;
   object-fit: contain;
   display: block;
 }
-.nav__links{ 
-  display: flex; 
-  align-items: center; 
-  gap: 34px; 
-  font-weight: 500; 
-  font-size: 15px; 
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  font-weight: 500;
+  font-size: 15px;
 }
-.nav__link{
+.nav__link {
   color: var(--ink-text);
-  transition: color .15s ease;
+  transition: color 0.15s ease;
 }
-.nav__link:hover{
+.nav__link:hover {
   color: var(--flash-dark);
 }
-/* Icons are completely hidden on desktop */
-.nav__icon{
+.nav__icon {
   display: none;
 }
-.nav__cta{
+.nav__cta {
   background: var(--ink);
   color: var(--paper);
   padding: 10px 20px;
   border-radius: 999px;
   font-weight: 600;
   font-size: 14.5px;
-  transition: background .15s ease, transform .15s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
-.nav__cta:hover{ 
-  background: var(--flash-dark); 
-  color: #fff; 
+.nav__cta:hover {
+  background: var(--flash-dark);
+  color: #fff;
   transform: translateY(-1px);
 }
 
 /* ===========================================================
-   MOBILE VIEW (Apple Music Style Dock + Glass Top Bar)
+   MOBILE VIEW (Liquid Glass Top Bar & Floating Bottom Dock)
 =========================================================== */
-@media (max-width: 768px){
-  .nav{
+@media (max-width: 768px) {
+  .nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -194,104 +195,113 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     pointer-events: none;
-    z-index: 999;
-  }
-  .nav__row{
-    height: 68px;
-    padding: 10px 16px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Logo left, CTA right */
-  }
-  
-  /* Top-Left Logo */
-  .nav__logo{
-    pointer-events: auto;
-    background: rgba(239, 237, 226, 0.72);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 6px 14px 6px 8px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 4px 16px rgba(20, 23, 31, 0.08),
-                inset 0 1px 1px rgba(255, 255, 255, 0.8);
-    font-size: 15px;
-    gap: 8px;
-  }
-  .nav__logo-img{
-    width: 20px;
-    height: 20px;
+    z-index: 9999;
   }
 
-  /* Top-Right Liquid Glass CTA */
-  .nav__cta{
+  .nav__row {
+    height: 72px;
+    padding: 12px 18px 0;
+    display: flex;
+    flex-direction: row; /* Logo on Left, CTA on Right */
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* --- Top Left Liquid Glass Logo --- */
+  .nav__logo {
     pointer-events: auto;
-    background: rgba(255, 90, 54, 0.82);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px) saturate(190%);
+    -webkit-backdrop-filter: blur(20px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 6px 14px 6px 7px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
+                inset 0 1px 1.5px rgba(255, 255, 255, 0.6),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+    color: #fff;
+  }
+  .nav__logo-img {
+    width: 22px;
+    height: 22px;
+  }
+  .nav__logo-text {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* --- Top Right Liquid Glass CTA --- */
+  .nav__cta {
+    pointer-events: auto;
+    background: rgba(255, 90, 54, 0.72);
     color: #ffffff;
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
     border: 1px solid rgba(255, 255, 255, 0.45);
     border-radius: 999px;
     padding: 8px 16px;
     font-size: 13px;
     font-weight: 600;
-    box-shadow: 0 8px 24px rgba(255, 90, 54, 0.32),
-                inset 0 1px 1.5px rgba(255, 255, 255, 0.6),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 28px rgba(255, 90, 54, 0.35),
+                inset 0 1px 2px rgba(255, 255, 255, 0.75),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.25);
   }
-  .nav__cta:hover{
-    background: rgba(225, 74, 41, 0.9);
+  .nav__cta:hover {
+    background: rgba(225, 74, 41, 0.85);
   }
 
-  /* Floating Apple Music–Style Bottom Dock */
-  .nav__links{
+  /* --- Bottom Liquid Glass Dock --- */
+  .nav__links {
     position: fixed;
-    bottom: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 32px);
+    width: calc(100% - 36px);
     max-width: 380px;
     padding: 6px 10px;
-    display: flex;
+    display: flex !important;
     justify-content: space-around;
     align-items: center;
     gap: 4px;
-    background: rgba(239, 237, 226, 0.78);
-    backdrop-filter: blur(30px) saturate(200%);
-    -webkit-backdrop-filter: blur(30px) saturate(200%);
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(20, 23, 31, 0.68); /* Dark Liquid Glass Tint */
+    backdrop-filter: blur(30px) saturate(210%);
+    -webkit-backdrop-filter: blur(30px) saturate(210%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 9999px;
-    box-shadow: 0 16px 40px -10px rgba(20, 23, 31, 0.22),
-                inset 0 1px 2px rgba(255, 255, 255, 0.8),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.55),
+                inset 0 1px 2px rgba(255, 255, 255, 0.35),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.3);
     pointer-events: auto;
-    z-index: 1000;
+    z-index: 99999;
   }
 
-  /* Dock Tabs */
-  .nav__link{
+  .nav__link {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3px;
-    padding: 6px 10px;
-    min-width: 52px;
+    padding: 6px 8px;
+    min-width: 50px;
     border-radius: 999px;
-    color: var(--ink-text-70);
-    font-size: 10.5px;
+    color: rgba(239, 237, 226, 0.75);
+    font-size: 10px;
     font-weight: 600;
-    transition: all .15s ease;
+    transition: all 0.15s ease;
   }
-  .nav__icon{
+  .nav__icon {
     display: block;
     width: 20px;
     height: 20px;
     stroke-width: 2.1;
   }
-  .nav__link:active{
-    background: rgba(20, 23, 31, 0.08);
-    color: var(--flash-dark);
+  .nav__link:active {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--flash);
     transform: scale(0.92);
   }
 }
