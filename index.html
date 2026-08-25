@@ -18,20 +18,20 @@
 <!-- ============ NAV ============ -->
 <header class="nav" id="top">
   <div class="wrap nav__row">
-    <!-- Logo (Top-Left on both Desktop and Mobile) -->
+    <!-- Logo (Top-Left on Mobile & Desktop) -->
     <a href="#top" class="nav__logo" aria-label="MailCapital home">
       <img src="logo.png" alt="" class="nav__logo-img">
       <span class="nav__logo-text">MailCapital</span>
     </a>
 
-    <!-- Floating Bottom Dock on Mobile / Center Links on Desktop -->
+    <!-- Center Navigation Links / Mobile Floating Dock -->
     <nav class="nav__links" id="nav-links" aria-label="Main Navigation">
       <a href="#top" class="nav__link">
         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
-        <span>Home</span>
+        <span class="nav__label">Home</span>
       </a>
 
       <a href="#services" class="nav__link">
@@ -40,7 +40,7 @@
           <polyline points="2 17 12 22 22 17"></polyline>
           <polyline points="2 12 12 17 22 12"></polyline>
         </svg>
-        <span>Services</span>
+        <span class="nav__label">Services</span>
       </a>
 
       <a href="#showcase" class="nav__link">
@@ -48,7 +48,7 @@
           <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
           <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
         </svg>
-        <span>Work</span>
+        <span class="nav__label">Work</span>
       </a>
 
       <a href="#process" class="nav__link">
@@ -58,7 +58,7 @@
           <circle cx="6" cy="18" r="3"></circle>
           <path d="M18 9a9 9 0 0 1-9 9"></path>
         </svg>
-        <span>Process</span>
+        <span class="nav__label">Process</span>
       </a>
 
       <a href="#results" class="nav__link">
@@ -66,12 +66,20 @@
           <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
           <polyline points="17 6 23 6 23 12"></polyline>
         </svg>
-        <span>Results</span>
+        <span class="nav__label">Results</span>
       </a>
     </nav>
 
-    <!-- Top-Right CTA -->
-    <a href="#book" class="nav__cta">Get Your Free Audit</a>
+    <!-- Option 1: Darkened Liquid Glass Pill CTA with Calendar Icon -->
+    <a href="#book" class="nav__cta">
+      <svg class="nav__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      <span class="nav__cta-text">Free Audit</span>
+    </a>
   </div>
 </header>
 
