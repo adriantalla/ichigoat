@@ -51,17 +51,21 @@ function runReceiptAnimation() {
 
   lineItems.forEach((el, i) => {
     const amount = Number(el.dataset.amount);
-    setTimeout(() => {
-      animateValue(el, { to: amount, duration: 700, isCurrency: true });
-    }, prefersReducedMotion ? 0 : i * 220);
+    if (!isNaN(amount)) {
+      setTimeout(() => {
+        animateValue(el, { to: amount, duration: 700, isCurrency: true });
+      }, prefersReducedMotion ? 0 : i * 220);
+    }
   });
 
-  if (total) {
+  if (total && total.dataset.amount) {
     const amount = Number(total.dataset.amount);
-    const delay = prefersReducedMotion ? 0 : lineItems.length * 220 + 200;
-    setTimeout(() => {
-      animateValue(total, { to: amount, duration: 900, isCurrency: true });
-    }, delay);
+    if (!isNaN(amount)) {
+      const delay = prefersReducedMotion ? 0 : lineItems.length * 220 + 200;
+      setTimeout(() => {
+        animateValue(total, { to: amount, duration: 900, isCurrency: true });
+      }, delay);
+    }
   }
 }
 
@@ -242,3 +246,86 @@ function highlightNav() {
 
 window.addEventListener('scroll', highlightNav, { passive: true });
 window.addEventListener('load', highlightNav);
+
+// ===========================================================
+// SERVICES CATEGORY FILTERING
+// ===========================================================
+const filterButtons = document.querySelectorAll('.services__filters .filter-btn');
+const serviceCards = document.querySelectorAll('#services-grid .card');
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterButtons.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+
+    const filter = btn.dataset.filter;
+
+    serviceCards.forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.classList.remove('is-hidden');
+      } else {
+        card.classList.add('is-hidden');
+      }
+    });
+  });
+});
+
+// ===========================================================
+// SERVICES SPLIT-SCREEN TABS (Silky Staggered Transition)
+// ===========================================================
+const tabBtns = document.querySelectorAll('.services-tabs__btn');
+const tabPanels = document.querySelectorAll('.services-tab__panel');
+let isTabTransitioning = false;
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.classList.contains('active') || isTabTransitioning) return;
+
+    const targetTab = btn.dataset.tab;
+    const currentActivePanel = document.querySelector('.services-tab__panel.active');
+    const targetPanel = document.getElementById(`tab-${targetTab}`);
+
+    isTabTransitioning = true;
+
+    // Update button states
+    tabBtns.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+
+    // Smooth exit then entry
+    if (currentActivePanel) {
+      currentActivePanel.classList.add('is-animating-out');
+      
+      setTimeout(() => {
+        currentActivePanel.classList.remove('active', 'is-animating-out');
+        if (targetPanel) {
+          targetPanel.classList.add('active');
+        }
+        isTabTransitioning = false;
+      }, 320); // Matched with exit transition duration
+    } else if (targetPanel) {
+      targetPanel.classList.add('active');
+      isTabTransitioning = false;
+    }
+  });
+});
+
+// Interactive selection for Tab 02 (Capture Quiz Mock)
+document.querySelectorAll('.optin-preview__choice').forEach(choice => {
+  choice.addEventListener('click', () => {
+    const parent = choice.closest('.optin-preview__choices');
+    parent.querySelectorAll('.optin-preview__choice').forEach(c => {
+      c.classList.remove('selected');
+      c.textContent = c.textContent.replace('✓ ', '');
+    });
+    choice.classList.add('selected');
+    choice.textContent = '✓ ' + choice.textContent;
+  });
+});
