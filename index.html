@@ -158,7 +158,7 @@
             <div class="receipt__divider" aria-hidden="true"></div>
             <div class="receipt__total">
               <span>Est. Total Leaked / Mo</span>
-              <b id="receipt-total">$19,000</b>
+              <b id="receipt-total" data-amount="19000">$19,000</b>
             </div>
             <p class="receipt__fine">*Estimated monthly recoverable flow revenue</p>
           </div>
@@ -190,39 +190,276 @@
   <section class="services" id="services">
     <div class="wrap">
       <p class="eyebrow">What we do</p>
-      <h2 class="section-title">Everything your store needs<br>to sell through the inbox</h2>
+      <h2 class="section-title">A complete retention engine,<br>built from the ground up</h2>
 
-      <div class="cards">
-        <article class="card">
-          <span class="card__tag">01</span>
-          <h3>Email &amp; SMS Audit</h3>
-          <p>We dig into your AOV, LTV, and existing flows to find exactly where revenue is sitting unclaimed - then hand you a clear plan to fix it.</p>
-        </article>
-        <article class="card">
-          <span class="card__tag">02</span>
-          <h3>List Growth &amp; Segmentation</h3>
-          <p>Better pop-ups, quizzes, and lead magnets to grow a list worth emailing - segmented so every message reaches the right shopper.</p>
-        </article>
-        <article class="card">
-          <span class="card__tag">03</span>
-          <h3>Flow Builds</h3>
-          <p>Welcome, abandoned cart, browse abandonment, post-purchase, win-back, and VIP - 30–30 emails built to run quietly and keep selling.</p>
-        </article>
-        <article class="card">
-          <span class="card__tag">04</span>
-          <h3>Campaign Calendar &amp; Design</h3>
-          <p>Weekly campaigns planned, written, and designed on-brand. You approve every send before it goes anywhere near your customers.</p>
-        </article>
-        <article class="card">
-          <span class="card__tag">05</span>
-          <h3>Promotions &amp; Offer Strategy</h3>
-          <p>Sale cadence, bundles, and timing that move inventory without training your list to wait for the next discount.</p>
-        </article>
-        <article class="card">
-          <span class="card__tag">06</span>
-          <h3>Deliverability &amp; Reporting</h3>
-          <p>We protect your sender reputation, keep you out of spam, and report on opens, clicks, and revenue - not vanity metrics.</p>
-        </article>
+      <!-- Tab Navigation -->
+      <div class="services-tabs__nav" role="tablist" aria-label="Lifecycle Services">
+        <button class="services-tabs__btn active" role="tab" aria-selected="true" aria-controls="tab-analyze" id="btn-analyze" data-tab="analyze">
+          <span class="services-tabs__num">01</span> Analyze
+        </button>
+        <button class="services-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-capture" id="btn-capture" data-tab="capture">
+          <span class="services-tabs__num">02</span> Capture
+        </button>
+        <button class="services-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-convert" id="btn-convert" data-tab="convert">
+          <span class="services-tabs__num">03</span> Convert
+        </button>
+        <button class="services-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-retain" id="btn-retain" data-tab="retain">
+          <span class="services-tabs__num">04</span> Retain
+        </button>
+        <button class="services-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-optimize" id="btn-optimize" data-tab="optimize">
+          <span class="services-tabs__num">05</span> Optimize
+        </button>
+      </div>
+
+      <!-- Tab Panels Container -->
+      <div class="services-tabs__container">
+
+        <!-- 01. Analyze -->
+        <div class="services-tab__panel active" id="tab-analyze" role="tabpanel" aria-labelledby="btn-analyze">
+          <div class="services-tab__grid">
+            <div class="services-tab__content">
+              <span class="services-tab__kicker">Phase 01 · Diagnostic &amp; Opportunity Mapping</span>
+              <h3 class="services-tab__title">Find the exact revenue leaks in your existing setup</h3>
+              <p class="services-tab__desc">We dig deep into your store's AOV, repeat purchase lag, ESP configuration, and deliverability health to identify where customers are falling off before buying.</p>
+              
+              <ul class="services-tab__deliverables">
+                <li><span>Full ESP Diagnostic &amp; List Health Score</span></li>
+                <li><span>Flow Gap Analysis &amp; Benchmarking</span></li>
+                <li><span>DKIM, DMARC &amp; Inbox Placement Audit</span></li>
+                <li><span>Custom 90-Day Revenue Roadmap</span></li>
+              </ul>
+
+              <div class="services-tab__action">
+                <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
+                <span class="services-tab__note">Includes 1-on-1 strategy breakdown</span>
+              </div>
+            </div>
+
+            <div class="services-tab__preview">
+              <!-- Unique Visual 1: Audit Diagnostic Matrix -->
+              <div class="diag-matrix">
+                <div class="diag-matrix__head">
+                  <span class="diag-matrix__title">List Diagnostic Matrix</span>
+                  <span class="diag-matrix__status">3 Critical Fixes</span>
+                </div>
+                <div class="diag-matrix__bars">
+                  <div class="diag-bar">
+                    <div class="diag-bar__meta"><span>Welcome Flow Conversion</span><b>1.8% (Benchmark 4.5%)</b></div>
+                    <div class="diag-bar__track"><div class="diag-bar__fill diag-bar__fill--red" style="width: 40%"></div></div>
+                  </div>
+                  <div class="diag-bar">
+                    <div class="diag-bar__meta"><span>Checkout Abandonment Recovery</span><b>4.1% (Benchmark 9.0%)</b></div>
+                    <div class="diag-bar__track"><div class="diag-bar__fill diag-bar__fill--yellow" style="width: 46%"></div></div>
+                  </div>
+                  <div class="diag-bar">
+                    <div class="diag-bar__meta"><span>Inbox Delivery Rate</span><b>84.2% Primary</b></div>
+                    <div class="diag-bar__track"><div class="diag-bar__fill diag-bar__fill--yellow" style="width: 84%"></div></div>
+                  </div>
+                </div>
+                <div class="diag-matrix__card">
+                  <span>Identified Monthly Leak</span>
+                  <b>$18,400 / mo</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02. Capture -->
+        <div class="services-tab__panel" id="tab-capture" role="tabpanel" aria-labelledby="btn-capture">
+          <div class="services-tab__grid">
+            <div class="services-tab__content">
+              <span class="services-tab__kicker">Phase 02 · Audience Acquisition</span>
+              <h3 class="services-tab__title">Turn passive site visitors into high-intent subscribers</h3>
+              <p class="services-tab__desc">We build high-converting popups, gamified quizzes, and zero-party data opt-ins that collect verified emails and phone numbers without annoying your shoppers.</p>
+              
+              <ul class="services-tab__deliverables">
+                <li><span>Multi-Step Mobile &amp; Desktop Popups</span></li>
+                <li><span>Zero-Party Data Collection &amp; Quizzes</span></li>
+                <li><span>SMS Compliance &amp; Two-Tap Opt-Ins</span></li>
+                <li><span>Dynamic First-Purchase Welcome Offers</span></li>
+              </ul>
+
+              <div class="services-tab__action">
+                <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
+                <span class="services-tab__note">See where your signup forms are losing visitors</span>
+              </div>
+            </div>
+
+            <div class="services-tab__preview">
+              <!-- Unique Visual 2: Zero-Party Interactive Opt-In Mock -->
+              <div class="optin-preview">
+                <div class="optin-preview__badge">Two-Tap SMS &amp; Quiz Engine</div>
+                <div class="optin-preview__box">
+                  <span class="optin-preview__step">Step 1 of 2 · Personalized Profile</span>
+                  <div class="optin-preview__question">What are you shopping for today?</div>
+                  <div class="optin-preview__choices">
+                    <span class="optin-preview__choice selected">✓ Daily Routine</span>
+                    <span class="optin-preview__choice">Pro Essentials</span>
+                  </div>
+                  <div class="optin-preview__stat">
+                    <span class="pulse-dot"></span>
+                    <span>Average Opt-In Rate: <strong>8.6%</strong> (Industry avg: 3.2%)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03. Convert -->
+        <div class="services-tab__panel" id="tab-convert" role="tabpanel" aria-labelledby="btn-convert">
+          <div class="services-tab__grid">
+            <div class="services-tab__content">
+              <span class="services-tab__kicker">Phase 03 · Core Flow Automation</span>
+              <h3 class="services-tab__title">Convert browsers into buyers on autopilot</h3>
+              <p class="services-tab__desc">Multi-branch automations that trigger right when intent peaks — rescuing abandoned checkouts, nurturing new leads, and driving rapid first purchases.</p>
+              
+              <ul class="services-tab__deliverables">
+                <li><span>Smart Abandoned Cart &amp; Checkout Sequences</span></li>
+                <li><span>Browse Abandonment &amp; Price Drop Alerts</span></li>
+                <li><span>High-Converting Welcome Onboarding Flows</span></li>
+                <li><span>Dynamic SMS Follow-Up Triggers</span></li>
+              </ul>
+
+              <div class="services-tab__action">
+                <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
+                <span class="services-tab__note">We'll review your highest-impact flows</span>
+              </div>
+            </div>
+
+            <div class="services-tab__preview">
+              <!-- Unique Visual 3: Multi-Branch Automation Logic Tree -->
+              <div class="tree-preview">
+                <div class="tree-node tree-node--root">
+                  <span>Trigger: Checkout Abandoned</span>
+                </div>
+                <div class="tree-branch">
+                  <div class="tree-split">
+                    <span class="tree-tag">&gt; $100 Cart</span>
+                    <div class="tree-leaf tree-leaf--accent">
+                      <span>SMS + Free Gift Tier</span>
+                      <b>18.2% Recovered</b>
+                    </div>
+                  </div>
+                  <div class="tree-split">
+                    <span class="tree-tag">&lt; $100 Cart</span>
+                    <div class="tree-leaf">
+                      <span>Dynamic Product Grid</span>
+                      <b>11.4% Recovered</b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04. Retain -->
+        <div class="services-tab__panel" id="tab-retain" role="tabpanel" aria-labelledby="btn-retain">
+          <div class="services-tab__grid">
+            <div class="services-tab__content">
+              <span class="services-tab__kicker">Phase 04 · LTV &amp; Repeat Purchase Maximization</span>
+              <h3 class="services-tab__title">Turn one-time buyers into loyal repeat brand advocates</h3>
+              <p class="services-tab__desc">Post-purchase education, timely re-order reminders, predictive win-backs, and VIP tiers engineered to compress the second-purchase buying cycle.</p>
+              
+              <ul class="services-tab__deliverables">
+                <li><span>Post-Purchase Cross-Sell &amp; Unboxing Nurture</span></li>
+                <li><span>Replenishment &amp; Predictive Reorder Triggers</span></li>
+                <li><span>High-Value VIP Loyalty Programs</span></li>
+                <li><span>Sunset &amp; Smart Win-Back Protocols</span></li>
+              </ul>
+
+              <div class="services-tab__action">
+                <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
+                <span class="services-tab__note">Discover your repeat purchase timeline</span>
+              </div>
+            </div>
+
+            <div class="services-tab__preview">
+              <!-- Unique Visual 4: Predictive Replenishment & LTV Timeline -->
+              <div class="ltv-preview">
+                <div class="ltv-preview__head">
+                  <span>Predictive Reorder Window</span>
+                  <span class="ltv-preview__tag">Day 45 Peak Intent</span>
+                </div>
+                <div class="ltv-timeline">
+                  <div class="ltv-step">
+                    <div class="ltv-dot"></div>
+                    <div class="ltv-text"><strong>Day 0</strong><span>Order Placed</span></div>
+                  </div>
+                  <div class="ltv-step">
+                    <div class="ltv-dot"></div>
+                    <div class="ltv-text"><strong>Day 5</strong><span>Unboxing Protocol</span></div>
+                  </div>
+                  <div class="ltv-step ltv-step--highlight">
+                    <div class="ltv-dot ltv-dot--flash"></div>
+                    <div class="ltv-text"><strong>Day 42</strong><span>Smart Refill Trigger</span></div>
+                  </div>
+                </div>
+                <div class="ltv-preview__bottom">
+                  <span>Repeat Purchase Lift</span>
+                  <b>+24% Customer Lifetime Value</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05. Optimize -->
+        <div class="services-tab__panel" id="tab-optimize" role="tabpanel" aria-labelledby="btn-optimize">
+          <div class="services-tab__grid">
+            <div class="services-tab__content">
+              <span class="services-tab__kicker">Phase 05 · Continuous Growth &amp; Deliverability</span>
+              <h3 class="services-tab__title">Scale campaigns, test offers, and protect deliverability</h3>
+              <p class="services-tab__desc">Weekly bespoke campaigns, rigorous A/B subject line testing, offer sequencing, and continuous domain monitoring to keep inbox delivery pristine.</p>
+              
+              <ul class="services-tab__deliverables">
+                <li><span>Weekly High-Converting Campaign Strategy &amp; Design</span></li>
+                <li><span>A/B Offer, Subject Line &amp; Timing Experiments</span></li>
+                <li><span>Dedicated Domain Deliverability Monitoring</span></li>
+                <li><span>Monthly Net Revenue &amp; Attribution Reporting</span></li>
+              </ul>
+
+              <div class="services-tab__action">
+                <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
+                <span class="services-tab__note">Zero lock-in contracts. You own the assets.</span>
+              </div>
+            </div>
+
+            <div class="services-tab__preview">
+              <!-- Unique Visual 5: Deliverability & Sender Score Dashboard -->
+              <div class="deliverability-preview">
+                <div class="deliverability-preview__head">
+                  <span class="deliverability-preview__icon">🛡️</span>
+                  <div>
+                    <strong>Primary Inbox Guarantee</strong>
+                    <small>DKIM, DMARC, SPF Validated</small>
+                  </div>
+                </div>
+                <div class="deliverability-grid">
+                  <div class="deliv-stat">
+                    <span>Sender Score</span>
+                    <b>99 / 100</b>
+                  </div>
+                  <div class="deliv-stat">
+                    <span>Spam Rate</span>
+                    <b class="deliv-stat--green">&lt; 0.02%</b>
+                  </div>
+                  <div class="deliv-stat">
+                    <span>Campaign Open Rate</span>
+                    <b>48.2% Avg</b>
+                  </div>
+                  <div class="deliv-stat">
+                    <span>Revenue Share</span>
+                    <b class="deliv-stat--green">34.8% Total</b>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
