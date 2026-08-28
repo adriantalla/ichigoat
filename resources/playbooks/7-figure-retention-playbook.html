@@ -12,7 +12,7 @@
 
   <style>
     /* ===========================================================
-       MailCapital Design Tokens & Graphic Foundations
+       MailCapital Design Tokens & Vector Graphic Foundations
     =========================================================== */
     :root {
       --ink:            #14171F;   /* deep charcoal navy */
@@ -28,8 +28,8 @@
       --flash-dark:     #E14A29;
       --grow:           #3FBE83;   /* growth mint-green */
 
-      --font-display:   "Space Grotesk", sans-serif;
-      --font-body:      "Inter", sans-serif;
+      --font-display:   "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body:      "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono:      "JetBrains Mono", monospace;
       --radius:         16px;
     }
@@ -44,8 +44,8 @@
       background-color: var(--ink-soft);
       color: var(--ink-text);
       font-family: var(--font-body);
-      font-size: 14.5px;
-      line-height: 1.45;
+      font-size: 14px;
+      line-height: 1.42;
       -webkit-font-smoothing: antialiased;
       padding: 30px 0;
     }
@@ -151,7 +151,21 @@
       margin-bottom: 14px;
     }
 
-    /* Clickable Button Styling */
+    /* SVG Icon Helpers */
+    .svg-icon {
+      display: inline-block;
+      vertical-align: middle;
+      fill: currentColor;
+    }
+    .svg-icon-stroke {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Clickable Action Button */
     .btn-action {
       display: inline-flex;
       align-items: center;
@@ -176,10 +190,10 @@
     }
 
     /* ===========================================================
-       GRAPHIC SHOWCASE ELEMENTS (Visual-Driven)
+       VECTOR GRAPHIC ENGINE & ILLUSTRATIONS (NO EMOJIS)
     =========================================================== */
 
-    /* 1. 3D Growth Capsule Graphic (Cover) */
+    /* 1. Vector Character & Growth Capsule Graphic (Cover) */
     .growth-stage {
       position: relative;
       display: flex;
@@ -202,7 +216,6 @@
       position: absolute;
       top: -24px;
       right: -16px;
-      font-size: 42px;
       background: var(--flash);
       width: 58px;
       height: 58px;
@@ -221,7 +234,9 @@
       background: rgba(63, 190, 131, 0.15);
       padding: 4px 10px;
       border-radius: 999px;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       margin-bottom: 12px;
     }
     .growth-meter {
@@ -252,7 +267,7 @@
       border-radius: 999px;
     }
 
-    /* 2. Zero-Party Segmenter Simulator (Page 2) */
+    /* 2. Vector Zero-Party Segmenter Simulator (Page 2) */
     .quiz-graphic {
       background: var(--ink);
       color: var(--paper);
@@ -273,6 +288,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      font-weight: 700;
     }
     .quiz-graphic__card {
       background: rgba(255,255,255,0.06);
@@ -296,6 +312,10 @@
       font-family: var(--font-mono);
       color: #FFFFFF;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
     .quiz-graphic__btn--active {
       background: rgba(63, 190, 131, 0.2);
@@ -304,7 +324,7 @@
       font-weight: 700;
     }
 
-    /* 3. Logic Pipeline Diagram (Page 3) */
+    /* 3. Logic Pipeline Vector Diagram (Page 3) */
     .pipeline-stage {
       background: var(--ink);
       color: var(--paper);
@@ -322,6 +342,7 @@
       font-size: 11px;
       color: #FF8A6B;
       margin-bottom: 10px;
+      font-weight: 700;
     }
     .pipeline-tree {
       display: grid;
@@ -344,6 +365,9 @@
     .pipeline-node strong {
       font-size: 12.5px;
       color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     .pipeline-node span {
       font-size: 11px;
@@ -370,6 +394,9 @@
       font-family: var(--font-display);
       font-size: 14px;
       font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .trajectory-stat {
       font-family: var(--font-mono);
@@ -410,6 +437,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+    .card__head-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .card-rows {
@@ -569,6 +601,10 @@
     }
 
     /* Print & Export Rules */
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
     @media print {
       body {
         background: transparent;
@@ -582,17 +618,13 @@
         height: 100vh;
         min-height: auto;
       }
-      @page {
-        size: letter portrait;
-        margin: 0;
-      }
     }
   </style>
 </head>
 <body>
 
   <!-- =========================================================
-       PAGE 1: COVER WITH 3D GROWTH CAPSULE GRAPHIC
+       PAGE 1: COVER WITH VECTOR CHARACTER GRAPHIC
   ========================================================= -->
   <section class="letter-page cover-page">
     <div class="page-header">
@@ -630,11 +662,27 @@
           </div>
         </div>
 
-        <!-- 3D Growth Capsule Graphic with Astronaut Character -->
+        <!-- 3D Vector Character & Growth Engine Card -->
         <div class="growth-stage">
           <div class="growth-card">
-            <div class="growth-avatar">👨‍🚀</div>
-            <div class="growth-badge">✦ RETENTION ENGINE ACTIVE</div>
+            <div class="growth-avatar">
+              <!-- Vector Mascot Character (Pilot / Navigator Helmet) -->
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z"></path>
+                <path d="M6 14v1a6 6 0 0 0 12 0v-1"></path>
+                <path d="M4 11h16"></path>
+                <circle cx="9" cy="8" r="1" fill="#FFFFFF"></circle>
+                <circle cx="15" cy="8" r="1" fill="#FFFFFF"></circle>
+                <path d="M10 18v3"></path>
+                <path d="M14 18v3"></path>
+              </svg>
+            </div>
+            <div class="growth-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--grow)">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              RETENTION ENGINE ACTIVE
+            </div>
             
             <div class="growth-meter">
               <div class="growth-meter__row">
@@ -672,7 +720,7 @@
   </section>
 
   <!-- =========================================================
-       PAGE 2: 30%+ REVENUE ARCHITECTURE + ZERO-PARTY SIMULATOR
+       PAGE 2: 30%+ REVENUE ARCHITECTURE + VECTOR ZERO-PARTY SIMULATOR
   ========================================================= -->
   <section class="letter-page">
     <div class="page-header">
@@ -706,7 +754,14 @@
       <div class="grid-2">
         <div class="card">
           <div class="card__head">
-            <span>📊 Operating Metric Benchmarks</span>
+            <span class="card__head-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--flash)">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+              Operating Metric Benchmarks
+            </span>
           </div>
           <div class="card-rows">
             <div class="card-row">
@@ -728,20 +783,34 @@
           </div>
         </div>
 
-        <!-- Graphic: Interactive Zero-Party Simulator -->
+        <!-- Graphic: Vector Zero-Party Simulator -->
         <div class="quiz-graphic">
-          <div class="quiz-graphic__badge">⚡ Zero-Party Segmentation Engine</div>
+          <div class="quiz-graphic__badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--flash)">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Zero-Party Segmentation Engine
+          </div>
           <div class="quiz-graphic__card">
             <div style="font-size: 12px; font-weight: 700; color: #FFFFFF;">"What is your primary revenue focus this quarter?"</div>
             <div class="quiz-graphic__opts">
-              <div class="quiz-graphic__btn quiz-graphic__btn--active">✓ Scale Flows</div>
+              <div class="quiz-graphic__btn quiz-graphic__btn--active">
+                <svg width="11" height="11" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--grow)">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Scale Flows
+              </div>
               <div class="quiz-graphic__btn">Double List</div>
               <div class="quiz-graphic__btn">Repeat LTV</div>
               <div class="quiz-graphic__btn">High ROI Sends</div>
             </div>
           </div>
-          <div style="font-family: var(--font-mono); font-size: 9.5px; color: var(--grow); font-weight: 700;">
-            ✦ Increases pop-up submission rate by +32% vs standard discount boxes
+          <div style="font-family: var(--font-mono); font-size: 9.5px; color: var(--grow); font-weight: 700; display: flex; align-items: center; gap: 5px;">
+            <svg width="11" height="11" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--grow)">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            Increases pop-up submission rate by +32% vs standard discount boxes
           </div>
         </div>
       </div>
@@ -806,7 +875,15 @@
 
       <div class="grid-2">
         <div class="card">
-          <div class="card__head">1. Welcome Series (Non-Buyers)</div>
+          <div class="card__head">
+            <span class="card__head-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--flash)">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              1. Welcome Series (Non-Buyers)
+            </span>
+          </div>
           <div class="card-rows">
             <div class="card-row">
               <span class="card-row__label">Email 1 (Instant):</span>
@@ -828,7 +905,16 @@
         </div>
 
         <div class="card">
-          <div class="card__head">2. Cart &amp; Checkout Recovery</div>
+          <div class="card__head">
+            <span class="card__head-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--flash)">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              2. Cart &amp; Checkout Recovery
+            </span>
+          </div>
           <div class="card-rows">
             <div class="card-row">
               <span class="card-row__label">Email 1 (+30 Mins):</span>
@@ -850,10 +936,18 @@
         </div>
       </div>
 
-      <!-- Graphic: Dynamic Split Logic Pipeline -->
+      <!-- Vector Graphic: Dynamic Split Logic Pipeline -->
       <div class="pipeline-stage">
         <div class="pipeline-head">
-          <span>🌿 DYNAMIC AOV SPLIT ENGINE</span>
+          <span style="display: flex; align-items: center; gap: 6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="#FF8A6B">
+              <circle cx="18" cy="18" r="3"></circle>
+              <circle cx="6" cy="6" r="3"></circle>
+              <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+              <line x1="6" y1="9" x2="6" y2="21"></line>
+            </svg>
+            DYNAMIC AOV SPLIT ENGINE
+          </span>
           <span>TRIGGER: CART SIZE THRESHOLD</span>
         </div>
         <div class="pipeline-tree">
@@ -862,7 +956,12 @@
             <span>Standard urgency timer + Free shipping milestone threshold.</span>
           </div>
           <div class="pipeline-node pipeline-node--highlight">
-            <strong style="color: var(--grow);">Branch B: VIP High-AOV ($75+)</strong>
+            <strong style="color: var(--grow);">
+              <svg width="13" height="13" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--grow)">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              Branch B: VIP High-AOV ($75+)
+            </strong>
             <span>Direct concierge support + Free Gift with Purchase incentive.</span>
           </div>
         </div>
@@ -870,7 +969,15 @@
 
       <div class="grid-2">
         <div class="card">
-          <div class="card__head">3. Browse Abandonment</div>
+          <div class="card__head">
+            <span class="card__head-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--flash)">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              3. Browse Abandonment
+            </span>
+          </div>
           <div class="card-rows">
             <div class="card-row">
               <span class="card-row__label">Trigger:</span>
@@ -884,7 +991,15 @@
         </div>
 
         <div class="card">
-          <div class="card__head">4. Post-Purchase Repeat</div>
+          <div class="card__head">
+            <span class="card__head-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--flash)">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              4. Post-Purchase Repeat
+            </span>
+          </div>
           <div class="card-rows">
             <div class="card-row">
               <span class="card-row__label">Email 1 (Instant):</span>
@@ -973,7 +1088,13 @@
       <!-- Graphic: 90-Day Retention Growth Trajectory Engine -->
       <div class="trajectory-box">
         <div class="trajectory-head">
-          <span class="trajectory-title">📈 90-Day Retention Share Trajectory</span>
+          <span class="trajectory-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" class="svg-icon-stroke" stroke="var(--flash)">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+            90-Day Retention Share Trajectory
+          </span>
           <span class="trajectory-stat">+35% Share Target</span>
         </div>
         <svg class="trajectory-svg" viewBox="0 0 400 50" preserveAspectRatio="none">
