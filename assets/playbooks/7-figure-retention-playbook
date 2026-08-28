@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 7-Figure Retention &amp; Flow Playbook | MailCapital</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================================================
+       MailCapital Design Tokens & Theme Matching
+    =========================================================== */
+    :root {
+      --ink:            #14171F;   /* deep charcoal navy */
+      --ink-soft:       #1D212C;
+      --ink-line:       #2A2F3B;
+      --paper:          #EFEDE2;   /* receipt paper */
+      --paper-raised:   #FAF9F3;
+      --paper-line:     #D9D5C6;
+      --ink-text:       #1B1D22;
+      --ink-text-70:    rgba(27,29,34,.7);
+      --paper-text-70:  rgba(239,237,226,.72);
+      --flash:          #FF5A36;   /* packaging-tape orange-red */
+      --flash-dark:     #E14A29;
+      --grow:           #3FBE83;   /* growth mint-green */
+
+      --font-display:   "Space Grotesk", sans-serif;
+      --font-body:      "Inter", sans-serif;
+      --font-mono:      "JetBrains Mono", monospace;
+      --radius:         14px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--ink-soft);
+      color: var(--ink-text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 0;
+    }
+
+    /* ===========================================================
+       A4 PAGE ARCHITECTURE (210mm x 297mm)
+    =========================================================== */
+    .a4-page {
+      width: 210mm;
+      min-height: 297mm;
+      height: 297mm;
+      margin: 0 auto 30px;
+      background: var(--paper);
+      padding: 16mm 18mm;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+      page-break-after: always;
+      overflow: hidden;
+    }
+
+    /* Running Header & Footer */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--paper-line);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+    .page-header__logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--ink-text);
+      text-decoration: none;
+    }
+    .page-header__logo-img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      display: block;
+    }
+    .page-header__tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink-text-70);
+      font-weight: 600;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--paper-line);
+      padding-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-text-70);
+    }
+
+    .page-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Typography Utilities */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      color: var(--ink-text);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--flash-dark);
+      margin-bottom: 6px;
+      font-weight: 700;
+      display: inline-block;
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .section-desc {
+      font-size: 13px;
+      color: var(--ink-text-70);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+
+    /* Structured Components & Grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--paper-raised);
+      border: 1px solid var(--paper-line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(20, 23, 31, 0.03);
+    }
+    .card__head {
+      font-family: var(--font-display);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--ink-text);
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--paper-line);
+    }
+
+    /* Key-Value Row Alignment Fix */
+    .card-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .card-row {
+      display: grid;
+      grid-template-columns: 125px 1fr;
+      gap: 10px;
+      align-items: baseline;
+      font-size: 11.5px;
+      line-height: 1.35;
+    }
+    .card-row__label {
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--ink-text);
+      position: relative;
+      padding-left: 10px;
+    }
+    .card-row__label::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--flash);
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .card-row__val {
+      color: var(--ink-text-70);
+    }
+
+    /* Metric Banner */
+    .metric-banner {
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .metric-val {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .metric-val--flash { color: var(--flash); }
+    .metric-val--grow { color: var(--grow); }
+    .metric-lbl {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--paper-text-70);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* Tables */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+      background: var(--paper-raised);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--paper-line);
+      margin-bottom: 12px;
+    }
+    .data-table th {
+      background: rgba(20, 23, 31, 0.04);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--paper-line);
+      color: var(--ink-text);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .data-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--paper-line);
+      color: var(--ink-text-70);
+      vertical-align: top;
+      line-height: 1.35;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* Cover Page */
+    .cover-page {
+      background: var(--ink);
+      color: var(--paper);
+      justify-content: space-between;
+      position: relative;
+    }
+    .cover-page::before {
+      content: "";
+      position: absolute;
+      top: -15%;
+      right: -15%;
+      width: 320mm;
+      height: 320mm;
+      background: radial-gradient(circle, rgba(255,90,54,.22) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cover-page .page-header { border-color: rgba(255, 255, 255, 0.12); }
+    .cover-page .page-header__logo { color: var(--paper); }
+    .cover-page .page-header__tag { color: var(--paper-text-70); }
+    .cover-page .page-footer { border-color: rgba(255, 255, 255, 0.12); color: rgba(239,237,226,.45); }
+    
+    .cover-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 14px 0 18px;
+    }
+    .cover-subtitle {
+      font-size: 16px;
+      color: var(--paper-text-70);
+      line-height: 1.5;
+      max-width: 500px;
+      margin-bottom: 28px;
+    }
+    .cover-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 18px;
+      border-radius: var(--radius);
+    }
+    .cover-meta-item strong {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--flash);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 3px;
+    }
+    .cover-meta-item span {
+      font-size: 13px;
+      color: #FFFFFF;
+    }
+
+    /* Print & Export Rules */
+    @media print {
+      body {
+        background: transparent;
+        padding: 0;
+      }
+      .a4-page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        width: 100%;
+        height: 100vh;
+        min-height: auto;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="a4-page cover-page">
+    <div class="page-header">
+      <div class="page-header__logo">
+        <img src="../images/logo.png" alt="MailCapital Logo" class="page-header__logo-img" />
+        <span>MailCapital</span>
+      </div>
+      <div class="page-header__tag">CONFIDENTIAL &middot; GROWTH ASSET</div>
+    </div>
+
+    <div class="page-content" style="justify-content: center;">
+      <span class="eyebrow" style="color: #FF8A6B;">7-Figure Retention Systems</span>
+      <h1 class="cover-title">The 7-Figure Retention &amp; Flow Playbook</h1>
+      <p class="cover-subtitle">How high-growth DTC brands generate 30%&ndash;45%+ of total store revenue through automated email &amp; SMS retention systems on autopilot.</p>
+
+      <div class="cover-meta-grid">
+        <div class="cover-meta-item">
+          <strong>Framework Focus</strong>
+          <span>High-AOV Flow Logic &amp; List Scaling</span>
+        </div>
+        <div class="cover-meta-item">
+          <strong>Deliverability Benchmark</strong>
+          <span>Google &amp; Yahoo 2026 Compliance</span>
+        </div>
+        <div class="cover-meta-item">
+          <strong>Revenue Target</strong>
+          <span>+$30K to +$140K / Month in 90 Days</span>
+        </div>
+        <div class="cover-meta-item">
+          <strong>Published By</strong>
+          <span>MailCapital (mailcapital.marketing)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>&copy; MailCapital Systems</span>
+      <span>PAGE 01</span>
+    </div>
+  </section>
+
+  <section class="a4-page">
+    <div class="page-header">
+      <div class="page-header__logo">
+        <img src="../images/logo.png" alt="MailCapital Logo" class="page-header__logo-img" />
+        <span>MailCapital</span>
+      </div>
+      <div class="page-header__tag">SECTION 1: THE CORE ARCHITECTURE</div>
+    </div>
+
+    <div class="page-content">
+      <span class="eyebrow">Financial Benchmarks</span>
+      <h2 class="section-title">The 30%&ndash;45% Retention Engine</h2>
+      <p class="section-desc">Top 7-figure stores don't treat email and SMS as bulk newsletters. They operate an automated retention engine that maximizes Customer Lifetime Value (LTV) and drives repeat purchases without paid ad dependency.</p>
+
+      <div class="metric-banner">
+        <div class="metric-item">
+          <div class="metric-val metric-val--flash">18%&ndash;25%</div>
+          <div class="metric-lbl">Automated Flows</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val metric-val--grow">12%&ndash;20%</div>
+          <div class="metric-lbl">Targeted Campaigns</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">30%&ndash;45%+</div>
+          <div class="metric-lbl">Total Store Share</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card__head">📊 Operating Metric Benchmarks</div>
+          <div class="card-rows">
+            <div class="card-row">
+              <span class="card-row__label">Pop-up Opt-in:</span>
+              <span class="card-row__val">8%&ndash;14% mobile, 4%&ndash;7% desktop.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Revenue / Recipient:</span>
+              <span class="card-row__val">$1.80&ndash;$4.50 on automated core flows.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Unsubscribe Rate:</span>
+              <span class="card-row__val">Under 0.20% per broadcast send.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Spam Complaint:</span>
+              <span class="card-row__val">Strictly below 0.08% for inbox safety.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">🛠️ Modern Infrastructure Pillars</div>
+          <div class="card-rows">
+            <div class="card-row">
+              <span class="card-row__label">Zero-Party Data:</span>
+              <span class="card-row__val">Profiling buyer interests on entry quizzes.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Value Splitting:</span>
+              <span class="card-row__val">Higher incentives only for high-AOV carts.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Channel Routing:</span>
+              <span class="card-row__val">SMS for urgency; email for storytelling.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Replenishment:</span>
+              <span class="card-row__val">Timed to estimated product consumption.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <h4 style="font-size: 13.5px; margin-bottom: 6px;">The Revenue Multiplication Formula</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Store Monthly Gross</th>
+              <th>Average Retention (12%)</th>
+              <th>7-Figure System (35%)</th>
+              <th>Annual Revenue Unlock</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>$100,000 / mo</strong></td>
+              <td>$12,000 / mo</td>
+              <td><strong>$35,000 / mo</strong></td>
+              <td><span style="color: var(--grow); font-weight: 700;">+$276,000 / yr</span></td>
+            </tr>
+            <tr>
+              <td><strong>$250,000 / mo</strong></td>
+              <td>$30,000 / mo</td>
+              <td><strong>$87,500 / mo</strong></td>
+              <td><span style="color: var(--grow); font-weight: 700;">+$690,000 / yr</span></td>
+            </tr>
+            <tr>
+              <td><strong>$500,000 / mo</strong></td>
+              <td>$60,000 / mo</td>
+              <td><strong>$175,000 / mo</strong></td>
+              <td><span style="color: var(--grow); font-weight: 700;">+$1,380,000 / yr</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>The 7-Figure Retention &amp; Flow Playbook</span>
+      <span>PAGE 02</span>
+    </div>
+  </section>
+
+  <section class="a4-page">
+    <div class="page-header">
+      <div class="page-header__logo">
+        <img src="../images/logo.png" alt="MailCapital Logo" class="page-header__logo-img" />
+        <span>MailCapital</span>
+      </div>
+      <div class="page-header__tag">SECTION 2: AUTOMATION SYSTEMS</div>
+    </div>
+
+    <div class="page-content">
+      <span class="eyebrow">Flow Blueprints</span>
+      <h2 class="section-title">The 5 Core Revenue Flows</h2>
+      <p class="section-desc">These 5 automated flows generate over 80% of all automated retention revenue when properly configured with dynamic branching logic.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card__head">1. Welcome Series (Non-Buyers)</div>
+          <div class="card-rows">
+            <div class="card-row">
+              <span class="card-row__label">Email 1 (Instant):</span>
+              <span class="card-row__val">Code delivery + Hero product spotlight.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">SMS 1 (+5 Mins):</span>
+              <span class="card-row__val">Short greeting &amp; auto-applied cart link.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Email 2 (+24 Hours):</span>
+              <span class="card-row__val">Founder vision &amp; quality differentiator.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Email 3 (+48 Hours):</span>
+              <span class="card-row__val">3&ndash;5 reviews handling top objections.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Email 4 (+Day 5):</span>
+              <span class="card-row__val">FAQ + Guarantee + Code expiration warning.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">2. Cart &amp; Checkout Recovery</div>
+          <div class="card-rows">
+            <div class="card-row">
+              <span class="card-row__label">Email 1 (+30 Mins):</span>
+              <span class="card-row__val">Helpful support angle ("Did something happen?").</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">SMS 1 (+60 Mins):</span>
+              <span class="card-row__val">Urgency reserve link before items release.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Email 2 (+12 Hours):</span>
+              <span class="card-row__val">Friction-removal: Free returns &amp; warranties.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Email 3 (+24 Hours):</span>
+              <span class="card-row__val">Limited-time incentive (gift / free shipping).</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">3. Browse Abandonment</div>
+          <div class="card-rows">
+            <div class="card-row">
+              <span class="card-row__label">Trigger Event:</span>
+              <span class="card-row__val">Viewed item 2+ times in 48h without cart add.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Email 1 (+2 Hours):</span>
+              <span class="card-row__val">Dynamic product card + targeted review.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Email 2 (+24 Hours):</span>
+              <span class="card-row__val">Category best-sellers &amp; trending alternatives.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">4. Post-Purchase &amp; Repeat</div>
+          <div class="card-rows">
+            <div class="card-row">
+              <span class="card-row__label">Email 1 (Instant):</span>
+              <span class="card-row__val">Order confirmation + delivery expectations.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Email 2 (Delivery):</span>
+              <span class="card-row__val">Video usage instructions &amp; unboxing tips.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">Email 3 (+14 Days):</span>
+              <span class="card-row__val">Review request &amp; UGC photo bounty.</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row__label">SMS (+Day 28):</span>
+              <span class="card-row__val">Predictive re-order / VIP cross-sell.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 10px; background: rgba(255, 90, 54, 0.06); border-color: rgba(255, 90, 54, 0.25);">
+        <div class="card__head" style="color: var(--flash-dark); border-color: rgba(255, 90, 54, 0.2);">5. Smart Win-Back &amp; Churn Prevention</div>
+        <p style="font-size: 11.5px; color: var(--ink-text-70); line-height: 1.4;">
+          Triggered at <strong>1.5&times;&ndash;2&times; average reorder cycle</strong> (usually Days 60&ndash;90). Day 60: "What's new in the catalog" &rarr; Day 75: Exclusive VIP comeback credit &rarr; Day 90: Sunset opt-out warning.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>The 7-Figure Retention &amp; Flow Playbook</span>
+      <span>PAGE 03</span>
+    </div>
+  </section>
+
+  <section class="a4-page">
+    <div class="page-header">
+      <div class="page-header__logo">
+        <img src="../images/logo.png" alt="MailCapital Logo" class="page-header__logo-img" />
+        <span>MailCapital</span>
+      </div>
+      <div class="page-header__tag">SECTION 3: EXECUTION ROADMAP</div>
+    </div>
+
+    <div class="page-content">
+      <span class="eyebrow">90-Day Execution</span>
+      <h2 class="section-title">The Implementation Timeline</h2>
+      <p class="section-desc">The phased sprint roadmap used to build, calibrate, and scale your store's entire lifecycle system in 90 days without subscription retainers.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Phase &amp; Timeline</th>
+            <th style="width: 40%;">Core Objectives</th>
+            <th style="width: 35%;">Key Deliverables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Phase 1<br>(Days 1&ndash;15)</strong></td>
+            <td>Infrastructure audit, inbox hygiene, and compliance calibration.</td>
+            <td>
+              • DMARC / DKIM / SPF verification<br>
+              • Sunset unengaged contacts (>90d)<br>
+              • 2-Step interactive pop-up launch
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Phase 2<br>(Days 16&ndash;45)</strong></td>
+            <td>Core flow reconstruction with dynamic logic branching and copywriting.</td>
+            <td>
+              • High-AOV Welcome Flow overhaul<br>
+              • Abandoned Checkout &amp; Cart matrix<br>
+              • Post-purchase onboarding journey
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Phase 3<br>(Days 46&ndash;70)</strong></td>
+            <td>SMS channel integration, browse intent flows, and VIP segmentation.</td>
+            <td>
+              • Two-way SMS compliance flows<br>
+              • High-intent browse recovery<br>
+              • Predictive replenishment triggers
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Phase 4<br>(Days 71&ndash;90)</strong></td>
+            <td>A/B split testing, deliverability optimization, and campaign calendars.</td>
+            <td>
+              • Offer &amp; subject line split tests<br>
+              • Win-back reactivation sprints<br>
+              • Custom cohort analytics dashboard
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: var(--ink); color: #fff; border-radius: var(--radius); padding: 18px 20px; text-align: center; margin-top: auto;">
+        <h3 style="color: #fff; font-size: 18px; margin-bottom: 6px;">Want Us to Build &amp; Deploy This For Your Store?</h3>
+        <p style="font-size: 12px; color: var(--paper-text-70); line-height: 1.4; max-width: 480px; margin: 0 auto 12px;">
+          We build, write, design, and configure your entire email &amp; SMS retention system in 90 days. No retainers. You own 100% of the assets.
+        </p>
+        <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--flash); font-weight: 700;">
+          Schedule your growth audit: mailcapital.marketing/#book
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>The 7-Figure Retention &amp; Flow Playbook</span>
+      <span>PAGE 04</span>
+    </div>
+  </section>
+
+</body>
+</html>
