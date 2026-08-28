@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The 7-Figure Retention &amp; Flow Playbook | MailCapital</title>
   
+  <!-- Fonts Matching Main Site -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ===========================================================
-       MailCapital Design Tokens & Theme Matching
+       MailCapital Design Tokens & Graphic Foundations
     =========================================================== */
     :root {
       --ink:            #14171F;   /* deep charcoal navy */
@@ -21,8 +22,8 @@
       --paper-raised:   #FAF9F3;
       --paper-line:     #D9D5C6;
       --ink-text:       #1B1D22;
-      --ink-text-70:    rgba(27,29,34,.7);
-      --paper-text-70:  rgba(239,237,226,.72);
+      --ink-text-70:    rgba(27,29,34,.75);
+      --paper-text-70:  rgba(239,237,226,.75);
       --flash:          #FF5A36;   /* packaging-tape orange-red */
       --flash-dark:     #E14A29;
       --grow:           #3FBE83;   /* growth mint-green */
@@ -30,7 +31,7 @@
       --font-display:   "Space Grotesk", sans-serif;
       --font-body:      "Inter", sans-serif;
       --font-mono:      "JetBrains Mono", monospace;
-      --radius:         14px;
+      --radius:         16px;
     }
 
     *, *::before, *::after {
@@ -43,27 +44,27 @@
       background-color: var(--ink-soft);
       color: var(--ink-text);
       font-family: var(--font-body);
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 14.5px;
+      line-height: 1.45;
       -webkit-font-smoothing: antialiased;
-      padding: 40px 0;
+      padding: 30px 0;
     }
 
     /* ===========================================================
-       A4 PAGE ARCHITECTURE (210mm x 297mm)
+       US LETTER PAGE ARCHITECTURE (8.5in x 11in)
     =========================================================== */
-    .a4-page {
-      width: 210mm;
-      min-height: 297mm;
-      height: 297mm;
+    .letter-page {
+      width: 8.5in;
+      min-height: 11in;
+      height: 11in;
       margin: 0 auto 30px;
       background: var(--paper);
-      padding: 16mm 18mm;
+      padding: 0.5in 0.6in;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.5);
       page-break-after: always;
       overflow: hidden;
     }
@@ -73,23 +74,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--paper-line);
-      padding-bottom: 10px;
-      margin-bottom: 14px;
+      border-bottom: 1.5px solid var(--paper-line);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
     }
     .page-header__logo {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 16px;
+      font-weight: 800;
+      font-size: 17px;
       color: var(--ink-text);
       text-decoration: none;
     }
     .page-header__logo-img {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       object-fit: contain;
       display: block;
     }
@@ -99,56 +100,290 @@
       text-transform: uppercase;
       letter-spacing: .08em;
       color: var(--ink-text-70);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .page-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid var(--paper-line);
-      padding-top: 10px;
+      border-top: 1.5px solid var(--paper-line);
+      padding-top: 8px;
       font-family: var(--font-mono);
       font-size: 10px;
       color: var(--ink-text-70);
+      font-weight: 600;
     }
 
     .page-content {
       flex: 1;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
     }
 
-    /* Typography Utilities */
+    /* Typography & Hierarchy */
     h1, h2, h3, h4 {
       font-family: var(--font-display);
       color: var(--ink-text);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
       line-height: 1.15;
     }
     .eyebrow {
       font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: .1em;
+      letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--flash-dark);
-      margin-bottom: 6px;
-      font-weight: 700;
+      margin-bottom: 4px;
+      font-weight: 800;
       display: inline-block;
     }
     .section-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 6px;
     }
     .section-desc {
-      font-size: 13px;
+      font-size: 13.5px;
       color: var(--ink-text-70);
-      line-height: 1.45;
+      line-height: 1.42;
       margin-bottom: 14px;
     }
 
-    /* Structured Components & Grid */
+    /* Clickable Button Styling */
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--flash);
+      color: #FFFFFF !important;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(255, 90, 54, 0.4);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-action:hover {
+      background: var(--flash-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(255, 90, 54, 0.5);
+    }
+
+    /* ===========================================================
+       GRAPHIC SHOWCASE ELEMENTS (Visual-Driven)
+    =========================================================== */
+
+    /* 1. 3D Growth Capsule Graphic (Cover) */
+    .growth-stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+    .growth-card {
+      background: linear-gradient(145deg, #1C202B, #14171F);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 22px;
+      width: 100%;
+      max-width: 330px;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+      transform: rotateY(-8deg) rotateX(6deg) rotate(2deg);
+      position: relative;
+    }
+    .growth-avatar {
+      position: absolute;
+      top: -24px;
+      right: -16px;
+      font-size: 42px;
+      background: var(--flash);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(255, 90, 54, 0.5), inset 0 2px 4px rgba(255,255,255,0.4);
+      border: 2px solid #FFFFFF;
+    }
+    .growth-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--grow);
+      background: rgba(63, 190, 131, 0.15);
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .growth-meter {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .growth-meter__row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--paper-text-70);
+      margin-bottom: 6px;
+    }
+    .growth-meter__bar {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .growth-meter__fill {
+      width: 78%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--flash), var(--grow));
+      border-radius: 999px;
+    }
+
+    /* 2. Zero-Party Segmenter Simulator (Page 2) */
+    .quiz-graphic {
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      border: 1px solid var(--ink-line);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.3);
+      transform: rotate(-1deg);
+      position: relative;
+    }
+    .quiz-graphic__badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--flash);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .quiz-graphic__card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    .quiz-graphic__opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .quiz-graphic__btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: #FFFFFF;
+      text-align: center;
+    }
+    .quiz-graphic__btn--active {
+      background: rgba(63, 190, 131, 0.2);
+      border-color: var(--grow);
+      color: var(--grow);
+      font-weight: 700;
+    }
+
+    /* 3. Logic Pipeline Diagram (Page 3) */
+    .pipeline-stage {
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: 0 14px 32px rgba(20, 23, 31, 0.18);
+      transform: rotate(0.8deg);
+      margin: 10px 0;
+    }
+    .pipeline-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #FF8A6B;
+      margin-bottom: 10px;
+    }
+    .pipeline-tree {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .pipeline-node {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pipeline-node--highlight {
+      border-color: var(--grow);
+      background: rgba(63, 190, 131, 0.1);
+    }
+    .pipeline-node strong {
+      font-size: 12.5px;
+      color: #FFFFFF;
+    }
+    .pipeline-node span {
+      font-size: 11px;
+      color: var(--paper-text-70);
+    }
+
+    /* 4. Trajectory Engine Visual (Page 4) */
+    .trajectory-box {
+      background: var(--paper-raised);
+      border: 1.5px solid var(--paper-line);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: 0 12px 28px rgba(20, 23, 31, 0.08);
+      transform: rotate(-1deg);
+      margin: 10px 0 14px;
+    }
+    .trajectory-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .trajectory-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .trajectory-stat {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--flash);
+    }
+    .trajectory-svg {
+      width: 100%;
+      height: 48px;
+      display: block;
+    }
+
+    /* Structured Layout & Cards */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -158,39 +393,41 @@
     .card {
       background: var(--paper-raised);
       border: 1px solid var(--paper-line);
-      border-radius: 12px;
+      border-radius: var(--radius);
       padding: 14px 16px;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 12px rgba(20, 23, 31, 0.03);
+      box-shadow: 0 6px 14px rgba(20, 23, 31, 0.03);
     }
     .card__head {
       font-family: var(--font-display);
       font-size: 14.5px;
       font-weight: 700;
       color: var(--ink-text);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       padding-bottom: 6px;
       border-bottom: 1px solid var(--paper-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* Key-Value Row Alignment Fix */
     .card-rows {
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
     }
     .card-row {
       display: grid;
-      grid-template-columns: 125px 1fr;
-      gap: 10px;
+      grid-template-columns: 120px 1fr;
+      gap: 8px;
       align-items: baseline;
-      font-size: 11.5px;
+      font-size: 12px;
       line-height: 1.35;
     }
     .card-row__label {
       font-family: var(--font-body);
-      font-weight: 600;
+      font-weight: 700;
       color: var(--ink-text);
       position: relative;
       padding-left: 10px;
@@ -201,7 +438,7 @@
       left: 0;
       top: 0;
       color: var(--flash);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: bold;
     }
     .card-row__val {
@@ -216,16 +453,16 @@
       padding: 14px 18px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 14px;
+      gap: 10px;
+      margin-bottom: 12px;
     }
     .metric-val {
       font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 700;
+      font-size: 24px;
+      font-weight: 800;
       color: #FFFFFF;
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .metric-val--flash { color: var(--flash); }
     .metric-val--grow { color: var(--grow); }
@@ -235,6 +472,7 @@
       color: var(--paper-text-70);
       text-transform: uppercase;
       letter-spacing: .06em;
+      font-weight: 600;
     }
 
     /* Tables */
@@ -246,13 +484,13 @@
       border-radius: 10px;
       overflow: hidden;
       border: 1px solid var(--paper-line);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .data-table th {
-      background: rgba(20, 23, 31, 0.04);
+      background: rgba(20, 23, 31, 0.05);
       font-family: var(--font-mono);
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 800;
       text-align: left;
       padding: 8px 12px;
       border-bottom: 1px solid var(--paper-line);
@@ -269,7 +507,7 @@
     }
     .data-table tr:last-child td { border-bottom: none; }
 
-    /* Cover Page */
+    /* Cover Styling */
     .cover-page {
       background: var(--ink);
       color: var(--paper);
@@ -281,44 +519,44 @@
       position: absolute;
       top: -15%;
       right: -15%;
-      width: 320mm;
-      height: 320mm;
-      background: radial-gradient(circle, rgba(255,90,54,.22) 0%, transparent 60%);
+      width: 12in;
+      height: 12in;
+      background: radial-gradient(circle, rgba(255,90,54,.25) 0%, transparent 60%);
       pointer-events: none;
     }
-    .cover-page .page-header { border-color: rgba(255, 255, 255, 0.12); }
+    .cover-page .page-header { border-color: rgba(255, 255, 255, 0.15); }
     .cover-page .page-header__logo { color: var(--paper); }
     .cover-page .page-header__tag { color: var(--paper-text-70); }
-    .cover-page .page-footer { border-color: rgba(255, 255, 255, 0.12); color: rgba(239,237,226,.45); }
+    .cover-page .page-footer { border-color: rgba(255, 255, 255, 0.15); color: rgba(239,237,226,.5); }
     
     .cover-title {
-      font-size: 44px;
-      font-weight: 700;
+      font-size: 42px;
+      font-weight: 800;
       color: #FFFFFF;
       line-height: 1.05;
       letter-spacing: -0.02em;
-      margin: 14px 0 18px;
+      margin: 12px 0 16px;
     }
     .cover-subtitle {
-      font-size: 16px;
+      font-size: 15.5px;
       color: var(--paper-text-70);
-      line-height: 1.5;
-      max-width: 500px;
-      margin-bottom: 28px;
+      line-height: 1.48;
+      max-width: 440px;
+      margin-bottom: 24px;
     }
     .cover-meta-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 18px;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 16px;
       border-radius: var(--radius);
     }
     .cover-meta-item strong {
       display: block;
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 10px;
       color: var(--flash);
       text-transform: uppercase;
       letter-spacing: .08em;
@@ -327,6 +565,7 @@
     .cover-meta-item span {
       font-size: 13px;
       color: #FFFFFF;
+      font-weight: 600;
     }
 
     /* Print & Export Rules */
@@ -335,7 +574,7 @@
         background: transparent;
         padding: 0;
       }
-      .a4-page {
+      .letter-page {
         margin: 0;
         box-shadow: none;
         page-break-after: always;
@@ -344,7 +583,7 @@
         min-height: auto;
       }
       @page {
-        size: A4 portrait;
+        size: letter portrait;
         margin: 0;
       }
     }
@@ -352,7 +591,10 @@
 </head>
 <body>
 
-  <section class="a4-page cover-page">
+  <!-- =========================================================
+       PAGE 1: COVER WITH 3D GROWTH CAPSULE GRAPHIC
+  ========================================================= -->
+  <section class="letter-page cover-page">
     <div class="page-header">
       <div class="page-header__logo">
         <img src="/assets/images/logo.png" alt="MailCapital Logo" class="page-header__logo-img" />
@@ -362,26 +604,63 @@
     </div>
 
     <div class="page-content" style="justify-content: center;">
-      <span class="eyebrow" style="color: #FF8A6B;">7-Figure Retention Systems</span>
-      <h1 class="cover-title">The 7-Figure Retention &amp; Flow Playbook</h1>
-      <p class="cover-subtitle">How high-growth DTC brands generate 30%&ndash;45%+ of total store revenue through automated email &amp; SMS retention systems on autopilot.</p>
+      <div style="display: grid; grid-template-columns: 1.2fr 0.95fr; gap: 28px; align-items: center;">
+        <div>
+          <span class="eyebrow" style="color: #FF8A6B;">7-Figure Lifecycle Blueprint</span>
+          <h1 class="cover-title">The 7-Figure Retention &amp; Flow Playbook</h1>
+          <p class="cover-subtitle">How high-growth DTC brands generate 30%&ndash;45%+ of total store revenue through automated email &amp; SMS retention systems on autopilot.</p>
 
-      <div class="cover-meta-grid">
-        <div class="cover-meta-item">
-          <strong>Framework Focus</strong>
-          <span>High-AOV Flow Logic &amp; List Scaling</span>
+          <div class="cover-meta-grid">
+            <div class="cover-meta-item">
+              <strong>Framework Focus</strong>
+              <span>High-AOV Flow Logic</span>
+            </div>
+            <div class="cover-meta-item">
+              <strong>Compliance</strong>
+              <span>Google &amp; Yahoo 2026</span>
+            </div>
+            <div class="cover-meta-item">
+              <strong>Revenue Target</strong>
+              <span>+$30K to +$140K / Mo</span>
+            </div>
+            <div class="cover-meta-item">
+              <strong>Published By</strong>
+              <span>MailCapital</span>
+            </div>
+          </div>
         </div>
-        <div class="cover-meta-item">
-          <strong>Deliverability Benchmark</strong>
-          <span>Google &amp; Yahoo 2026 Compliance</span>
-        </div>
-        <div class="cover-meta-item">
-          <strong>Revenue Target</strong>
-          <span>+$30K to +$140K / Month in 90 Days</span>
-        </div>
-        <div class="cover-meta-item">
-          <strong>Published By</strong>
-          <span>MailCapital (mailcapital.marketing)</span>
+
+        <!-- 3D Growth Capsule Graphic with Astronaut Character -->
+        <div class="growth-stage">
+          <div class="growth-card">
+            <div class="growth-avatar">👨‍🚀</div>
+            <div class="growth-badge">✦ RETENTION ENGINE ACTIVE</div>
+            
+            <div class="growth-meter">
+              <div class="growth-meter__row">
+                <span>Core Flow Share</span>
+                <b style="color: #FFFFFF;">38.4% of Gross</b>
+              </div>
+              <div class="growth-meter__bar">
+                <div class="growth-meter__fill"></div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px;">
+                <span style="color: var(--paper-text-70);">Welcome Conversion:</span>
+                <b style="color: var(--grow);">+4.8% Opt-in</b>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px;">
+                <span style="color: var(--paper-text-70);">Recovered Cart Share:</span>
+                <b style="color: var(--flash);">$18.4K / Mo</b>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px;">
+                <span style="color: var(--paper-text-70);">Inbox Placement:</span>
+                <b style="color: #FFFFFF;">99.4% Primary</b>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -392,7 +671,10 @@
     </div>
   </section>
 
-  <section class="a4-page">
+  <!-- =========================================================
+       PAGE 2: 30%+ REVENUE ARCHITECTURE + ZERO-PARTY SIMULATOR
+  ========================================================= -->
+  <section class="letter-page">
     <div class="page-header">
       <div class="page-header__logo">
         <img src="/assets/images/logo.png" alt="MailCapital Logo" class="page-header__logo-img" />
@@ -423,7 +705,9 @@
 
       <div class="grid-2">
         <div class="card">
-          <div class="card__head">📊 Operating Metric Benchmarks</div>
+          <div class="card__head">
+            <span>📊 Operating Metric Benchmarks</span>
+          </div>
           <div class="card-rows">
             <div class="card-row">
               <span class="card-row__label">Pop-up Opt-in:</span>
@@ -444,31 +728,26 @@
           </div>
         </div>
 
-        <div class="card">
-          <div class="card__head">🛠️ Modern Infrastructure Pillars</div>
-          <div class="card-rows">
-            <div class="card-row">
-              <span class="card-row__label">Zero-Party Data:</span>
-              <span class="card-row__val">Profiling buyer interests on entry quizzes.</span>
+        <!-- Graphic: Interactive Zero-Party Simulator -->
+        <div class="quiz-graphic">
+          <div class="quiz-graphic__badge">⚡ Zero-Party Segmentation Engine</div>
+          <div class="quiz-graphic__card">
+            <div style="font-size: 12px; font-weight: 700; color: #FFFFFF;">"What is your primary revenue focus this quarter?"</div>
+            <div class="quiz-graphic__opts">
+              <div class="quiz-graphic__btn quiz-graphic__btn--active">✓ Scale Flows</div>
+              <div class="quiz-graphic__btn">Double List</div>
+              <div class="quiz-graphic__btn">Repeat LTV</div>
+              <div class="quiz-graphic__btn">High ROI Sends</div>
             </div>
-            <div class="card-row">
-              <span class="card-row__label">Value Splitting:</span>
-              <span class="card-row__val">Higher incentives only for high-AOV carts.</span>
-            </div>
-            <div class="card-row">
-              <span class="card-row__label">Channel Routing:</span>
-              <span class="card-row__val">SMS for urgency; email for storytelling.</span>
-            </div>
-            <div class="card-row">
-              <span class="card-row__label">Replenishment:</span>
-              <span class="card-row__val">Timed to estimated product consumption.</span>
-            </div>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 9.5px; color: var(--grow); font-weight: 700;">
+            ✦ Increases pop-up submission rate by +32% vs standard discount boxes
           </div>
         </div>
       </div>
 
-      <div style="margin-top: 14px;">
-        <h4 style="font-size: 13.5px; margin-bottom: 6px;">The Revenue Multiplication Formula</h4>
+      <div style="margin-top: 10px;">
+        <h4 style="font-size: 13px; margin-bottom: 5px;">The Revenue Multiplication Formula</h4>
         <table class="data-table">
           <thead>
             <tr>
@@ -508,7 +787,10 @@
     </div>
   </section>
 
-  <section class="a4-page">
+  <!-- =========================================================
+       PAGE 3: 5 FLOWS + DYNAMIC LOGIC PIPELINE DIAGRAM
+  ========================================================= -->
+  <section class="letter-page">
     <div class="page-header">
       <div class="page-header__logo">
         <img src="/assets/images/logo.png" alt="MailCapital Logo" class="page-header__logo-img" />
@@ -542,10 +824,6 @@
               <span class="card-row__label">Email 3 (+48 Hours):</span>
               <span class="card-row__val">3&ndash;5 reviews handling top objections.</span>
             </div>
-            <div class="card-row">
-              <span class="card-row__label">Email 4 (+Day 5):</span>
-              <span class="card-row__val">FAQ + Guarantee + Code expiration warning.</span>
-            </div>
           </div>
         </div>
 
@@ -570,39 +848,47 @@
             </div>
           </div>
         </div>
+      </div>
 
+      <!-- Graphic: Dynamic Split Logic Pipeline -->
+      <div class="pipeline-stage">
+        <div class="pipeline-head">
+          <span>🌿 DYNAMIC AOV SPLIT ENGINE</span>
+          <span>TRIGGER: CART SIZE THRESHOLD</span>
+        </div>
+        <div class="pipeline-tree">
+          <div class="pipeline-node">
+            <strong>Branch A: Low-AOV Cart (&lt; $75)</strong>
+            <span>Standard urgency timer + Free shipping milestone threshold.</span>
+          </div>
+          <div class="pipeline-node pipeline-node--highlight">
+            <strong style="color: var(--grow);">Branch B: VIP High-AOV ($75+)</strong>
+            <span>Direct concierge support + Free Gift with Purchase incentive.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
         <div class="card">
           <div class="card__head">3. Browse Abandonment</div>
           <div class="card-rows">
             <div class="card-row">
-              <span class="card-row__label">Trigger Event:</span>
+              <span class="card-row__label">Trigger:</span>
               <span class="card-row__val">Viewed item 2+ times in 48h without cart add.</span>
             </div>
             <div class="card-row">
-              <span class="card-row__label">Email 1 (+2 Hours):</span>
+              <span class="card-row__label">Email 1 (+2h):</span>
               <span class="card-row__val">Dynamic product card + targeted review.</span>
-            </div>
-            <div class="card-row">
-              <span class="card-row__label">Email 2 (+24 Hours):</span>
-              <span class="card-row__val">Category best-sellers &amp; trending alternatives.</span>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card__head">4. Post-Purchase &amp; Repeat</div>
+          <div class="card__head">4. Post-Purchase Repeat</div>
           <div class="card-rows">
             <div class="card-row">
               <span class="card-row__label">Email 1 (Instant):</span>
               <span class="card-row__val">Order confirmation + delivery expectations.</span>
-            </div>
-            <div class="card-row">
-              <span class="card-row__label">Email 2 (Delivery):</span>
-              <span class="card-row__val">Video usage instructions &amp; unboxing tips.</span>
-            </div>
-            <div class="card-row">
-              <span class="card-row__label">Email 3 (+14 Days):</span>
-              <span class="card-row__val">Review request &amp; UGC photo bounty.</span>
             </div>
             <div class="card-row">
               <span class="card-row__label">SMS (+Day 28):</span>
@@ -610,13 +896,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="card" style="margin-top: 10px; background: rgba(255, 90, 54, 0.06); border-color: rgba(255, 90, 54, 0.25);">
-        <div class="card__head" style="color: var(--flash-dark); border-color: rgba(255, 90, 54, 0.2);">5. Smart Win-Back &amp; Churn Prevention</div>
-        <p style="font-size: 11.5px; color: var(--ink-text-70); line-height: 1.4;">
-          Triggered at <strong>1.5&times;&ndash;2&times; average reorder cycle</strong> (usually Days 60&ndash;90). Day 60: "What's new in the catalog" &rarr; Day 75: Exclusive VIP comeback credit &rarr; Day 90: Sunset opt-out warning.
-        </p>
       </div>
     </div>
 
@@ -626,7 +905,10 @@
     </div>
   </section>
 
-  <section class="a4-page">
+  <!-- =========================================================
+       PAGE 4: ROADMAP + GROWTH TRAJECTORY + CLICKABLE BUTTON
+  ========================================================= -->
+  <section class="letter-page">
     <div class="page-header">
       <div class="page-header__logo">
         <img src="/assets/images/logo.png" alt="MailCapital Logo" class="page-header__logo-img" />
@@ -688,14 +970,32 @@
         </tbody>
       </table>
 
-      <div style="background: var(--ink); color: #fff; border-radius: var(--radius); padding: 18px 20px; text-align: center; margin-top: auto;">
-        <h3 style="color: #fff; font-size: 18px; margin-bottom: 6px;">Want Us to Build &amp; Deploy This For Your Store?</h3>
-        <p style="font-size: 12px; color: var(--paper-text-70); line-height: 1.4; max-width: 480px; margin: 0 auto 12px;">
+      <!-- Graphic: 90-Day Retention Growth Trajectory Engine -->
+      <div class="trajectory-box">
+        <div class="trajectory-head">
+          <span class="trajectory-title">📈 90-Day Retention Share Trajectory</span>
+          <span class="trajectory-stat">+35% Share Target</span>
+        </div>
+        <svg class="trajectory-svg" viewBox="0 0 400 50" preserveAspectRatio="none">
+          <path d="M 0 44 Q 90 42, 140 32 T 260 18 T 400 4" fill="none" stroke="#FF5A36" stroke-width="3.5" stroke-linecap="round" />
+          <circle cx="400" cy="4" r="5" fill="#E14A29" stroke="#FFFFFF" stroke-width="2" />
+        </svg>
+        <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 9px; color: var(--ink-text-70); margin-top: 2px;">
+          <span>Day 1: Baseline (12%)</span>
+          <span>Day 45: Flows Live (24%)</span>
+          <span style="font-weight: 800; color: var(--flash);">Day 90: Scaled (35%+)</span>
+        </div>
+      </div>
+
+      <!-- Bottom Direct Booking Callout with Clickable Action Button -->
+      <div style="background: var(--ink); color: #fff; border-radius: var(--radius); padding: 18px 22px; text-align: center; margin-top: auto;">
+        <h3 style="color: #fff; font-size: 17px; margin-bottom: 4px;">Ready to Deploy This Retention System?</h3>
+        <p style="font-size: 12.5px; color: var(--paper-text-70); line-height: 1.4; max-width: 460px; margin: 0 auto 12px;">
           We build, write, design, and configure your entire email &amp; SMS retention system in 90 days. No retainers. You own 100% of the assets.
         </p>
-        <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--flash); font-weight: 700;">
-          Schedule your growth audit: mailcapital.marketing/#book
-        </div>
+        <a href="https://mailcapital.marketing/#book" target="_blank" class="btn-action">
+          Book Your 1-on-1 Growth Session &rarr;
+        </a>
       </div>
     </div>
 
