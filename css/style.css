@@ -967,7 +967,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 
 /* ===========================================================
-   EMAIL DESIGN SHOWCASE (Seamless Ticker + Frame Scroll)
+   EMAIL DESIGN SHOWCASE (Gap-Free Ticker + Reduced Height)
 =========================================================== */
 .showcase { 
   padding: 28px 0 72px; 
@@ -978,6 +978,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 
 .marquee {
+  width: 100%;
   overflow: hidden;
   display: flex;
   user-select: none;
@@ -997,19 +998,18 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   align-items: flex-start;
   gap: 20px;
   flex-shrink: 0;
-  min-width: 100%;
-  animation: marquee-ticker 30s linear infinite;
+  animation: marquee-ticker 28s linear infinite;
   will-change: transform;
 }
 
-/* Pause the translation on hover so the card doesn't slide away during scroll */
+/* Pause horizontal ticker on hover so users can scroll the email */
 .marquee:hover .marquee__group { 
   animation-play-state: paused; 
 }
 
 .marquee__card {
   width: 230px;
-  flex: none;
+  flex: 0 0 230px;
   border-radius: 14px;
   border: 1px solid var(--paper-line);
   box-shadow: 0 20px 40px -26px rgba(20, 23, 31, 0.25);
@@ -1027,12 +1027,13 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .marquee__frame {
   position: relative;
   width: 100%;
-  height: 440px;
+  height: 360px; /* Reduced from 440px */
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background: #f7f6f0;
 }
 
 .marquee__frame::-webkit-scrollbar {
@@ -1041,10 +1042,12 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 
 .marquee__img {
   width: 100%;
+  min-height: 360px; /* Adjusted to match frame height */
   height: auto;
   display: block;
   pointer-events: none;
-  background-color: #f0ede6; /* Prevents blank collapse before load */
+  object-fit: cover;
+  object-position: top;
 }
 
 .showcase__note {
@@ -1055,12 +1058,11 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   color: var(--ink-text-70);
 }
 
-/* Loop translation accounts for the 20px gap between the groups */
 @keyframes marquee-ticker {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
+  100% {
     transform: translateX(calc(-100% - 20px));
   }
 }
@@ -1078,10 +1080,14 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 
 @media (max-width: 720px) {
   .marquee__card { 
-    width: 190px; 
+    width: 190px;
+    flex: 0 0 190px;
   }
   .marquee__frame { 
-    height: 360px; 
+    height: 300px; /* Scaled down for mobile */
+  }
+  .marquee__img {
+    min-height: 300px;
   }
 }
 
