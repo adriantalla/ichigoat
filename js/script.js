@@ -1,3 +1,46 @@
+// ===========================================================
+// KLAVIYO PUBLIC CLIENT CREDENTIALS
+// ===========================================================
+const KLAVIYO_COMPANY_ID = 'ViZexi';
+const KLAVIYO_AUDIT_LIST_ID = 'TWM3de';
+
+// ===========================================================
+// ATTRIBUTION & UTM PARAMETER TRACKER
+// ===========================================================
+function getAttributionData() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return {
+    utm_source: urlParams.get('utm_source') || '',
+    utm_medium: urlParams.get('utm_medium') || '',
+    utm_campaign: urlParams.get('utm_campaign') || '',
+    utm_content: urlParams.get('utm_content') || '',
+    utm_term: urlParams.get('utm_term') || '',
+    referrer: document.referrer || 'Direct / None',
+    page_url: window.location.href
+  };
+}
+
+// ===========================================================
+// VALIDATION HELPERS
+// ===========================================================
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+}
+
+function isValidUrl(url) {
+  return /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/.*)?$/i.test(url.trim());
+}
+
+function setError(inputEl, errorEl, message) {
+  if (inputEl) inputEl.classList.add('is-invalid');
+  if (errorEl) errorEl.textContent = message;
+}
+
+function clearError(inputEl, errorEl) {
+  if (inputEl) inputEl.classList.remove('is-invalid');
+  if (errorEl) errorEl.textContent = '';
+}
+
 // ---------- Mobile nav toggle ----------
 const navToggle = document.getElementById('nav-toggle');
 const navLinks = document.getElementById('nav-links');
@@ -120,30 +163,6 @@ function runProcessChartAnimation() {
   }
 }
 
-// ---------- Marquee vertical pan (reveals full email length inside each card) ----------
-function setupMarqueePan() {
-  const imgs = document.querySelectorAll('.marquee__img');
-  imgs.forEach(img => {
-    const measure = () => {
-      const frame = img.parentElement;
-      if (!frame) return;
-      const frameHeight = frame.clientHeight;
-      const frameWidth = frame.clientWidth;
-      if (!img.naturalWidth || !frameWidth) return;
-      const displayedHeight = (frameWidth / img.naturalWidth) * img.naturalHeight;
-      const delta = displayedHeight - frameHeight;
-      img.style.setProperty('--pan-distance', delta > 0 ? `-${Math.round(delta)}px` : '0px');
-    };
-    if (img.complete) {
-      measure();
-    } else {
-      img.addEventListener('load', measure, { once: true });
-    }
-    window.addEventListener('resize', measure);
-  });
-}
-setupMarqueePan();
-
 // Trigger once elements enter the viewport
 const observed = new WeakSet();
 const observer = new IntersectionObserver((entries) => {
@@ -179,7 +198,7 @@ document.querySelectorAll('.nav__logo, .nav__links a[href="#home"]').forEach(lin
 });
 
 // ===========================================================
-// HERO REVENUE LEAK CALCULATOR
+// HERO REVENUE LEAK CALCULATOR & RECEIPT CTA
 // ===========================================================
 const slider = document.getElementById('rev-slider');
 const displayVal = document.getElementById('calc-display-val');
@@ -190,14 +209,14 @@ const itemPost = document.getElementById('item-post');
 const itemWinback = document.getElementById('item-winback');
 const itemVip = document.getElementById('item-vip');
 const receiptTotal = document.getElementById('receipt-total');
+const calcClaimBtn = document.getElementById('calc-claim-btn');
 
 function updateCalculator(revenue) {
-  // Estimated recovery percentages based on standard DTC benchmarks
-  const welcome = revenue * 0.032;  // 3.2%
-  const cart = revenue * 0.065;     // 6.5%
-  const post = revenue * 0.021;     // 2.1%
-  const winback = revenue * 0.027;  // 2.7%
-  const vip = revenue * 0.045;      // 4.5%
+  const welcome = revenue * 0.032;
+  const cart = revenue * 0.065;
+  const post = revenue * 0.021;
+  const winback = revenue * 0.027;
+  const vip = revenue * 0.045;
   const total = welcome + cart + post + winback + vip;
 
   if (displayVal) displayVal.textContent = '$' + Number(revenue).toLocaleString('en-US') + '/mo';
@@ -207,13 +226,13 @@ function updateCalculator(revenue) {
   if (itemWinback) itemWinback.textContent = formatCurrency(winback);
   if (itemVip) itemVip.textContent = formatCurrency(vip);
   if (receiptTotal) receiptTotal.textContent = formatCurrency(total);
+  if (calcClaimBtn) calcClaimBtn.textContent = `Recover This ${formatCurrency(total)} →`;
 }
 
 if (slider) {
   slider.addEventListener('input', (e) => {
     updateCalculator(e.target.value);
   });
-  // Initialize on load
   updateCalculator(slider.value);
 }
 
@@ -225,7 +244,7 @@ const navLinkElements = document.querySelectorAll('.nav__links .nav__link');
 
 function highlightNav() {
   let currentSectionId = 'home';
-  const scrollPosition = window.scrollY + 180; // Trigger line offset
+  const scrollPosition = window.scrollY + 180;
 
   sections.forEach((section) => {
     const top = section.offsetTop;
@@ -248,34 +267,7 @@ window.addEventListener('scroll', highlightNav, { passive: true });
 window.addEventListener('load', highlightNav);
 
 // ===========================================================
-// SERVICES CATEGORY FILTERING
-// ===========================================================
-const filterButtons = document.querySelectorAll('.services__filters .filter-btn');
-const serviceCards = document.querySelectorAll('#services-grid .card');
-
-filterButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterButtons.forEach(b => {
-      b.classList.remove('active');
-      b.setAttribute('aria-selected', 'false');
-    });
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected', 'true');
-
-    const filter = btn.dataset.filter;
-
-    serviceCards.forEach(card => {
-      if (filter === 'all' || card.dataset.category === filter) {
-        card.classList.remove('is-hidden');
-      } else {
-        card.classList.add('is-hidden');
-      }
-    });
-  });
-});
-
-// ===========================================================
-// SERVICES SPLIT-SCREEN TABS (Silky Staggered Transition)
+// SERVICES SPLIT-SCREEN TABS
 // ===========================================================
 const tabBtns = document.querySelectorAll('.services-tabs__btn');
 const tabPanels = document.querySelectorAll('.services-tab__panel');
@@ -291,7 +283,6 @@ tabBtns.forEach(btn => {
 
     isTabTransitioning = true;
 
-    // Update button states
     tabBtns.forEach(b => {
       b.classList.remove('active');
       b.setAttribute('aria-selected', 'false');
@@ -299,7 +290,6 @@ tabBtns.forEach(btn => {
     btn.classList.add('active');
     btn.setAttribute('aria-selected', 'true');
 
-    // Smooth exit then entry
     if (currentActivePanel) {
       currentActivePanel.classList.add('is-animating-out');
       
@@ -309,7 +299,7 @@ tabBtns.forEach(btn => {
           targetPanel.classList.add('active');
         }
         isTabTransitioning = false;
-      }, 320); // Matched with exit transition duration
+      }, 320);
     } else if (targetPanel) {
       targetPanel.classList.add('active');
       isTabTransitioning = false;
@@ -329,3 +319,127 @@ document.querySelectorAll('.optin-preview__choice').forEach(choice => {
     choice.textContent = '✓ ' + choice.textContent;
   });
 });
+
+// ===========================================================
+// AUDIT FORM (DIRECT TO KLAVIYO CLIENT API & REDIRECT)
+// ===========================================================
+const auditForm = document.getElementById('audit-request-form');
+const auditSubmitBtn = document.getElementById('audit-submit-btn');
+
+const nameInput = document.getElementById('audit-name');
+const urlInput = document.getElementById('audit-url');
+const emailInput = document.getElementById('audit-email');
+
+const nameError = document.getElementById('audit-name-error');
+const urlError = document.getElementById('audit-url-error');
+const emailError = document.getElementById('audit-email-error');
+
+if (nameInput) nameInput.addEventListener('input', () => clearError(nameInput, nameError));
+if (urlInput) urlInput.addEventListener('input', () => clearError(urlInput, urlError));
+if (emailInput) emailInput.addEventListener('input', () => clearError(emailInput, emailError));
+
+if (auditForm) {
+  auditForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const nameVal = nameInput ? nameInput.value.trim() : '';
+    const urlVal = urlInput ? urlInput.value.trim() : '';
+    const emailVal = emailInput ? emailInput.value.trim() : '';
+
+    let hasErrors = false;
+
+    if (!nameVal) {
+      setError(nameInput, nameError, 'Please enter your first name.');
+      hasErrors = true;
+    } else {
+      clearError(nameInput, nameError);
+    }
+
+    if (!urlVal) {
+      setError(urlInput, urlError, 'Please enter your store website.');
+      hasErrors = true;
+    } else if (!isValidUrl(urlVal)) {
+      setError(urlInput, urlError, 'Please enter a valid website address.');
+      hasErrors = true;
+    } else {
+      clearError(urlInput, urlError);
+    }
+
+    if (!emailVal) {
+      setError(emailInput, emailError, 'Please enter your work email.');
+      hasErrors = true;
+    } else if (!isValidEmail(emailVal)) {
+      setError(emailInput, emailError, 'Please enter a valid email address.');
+      hasErrors = true;
+    } else {
+      clearError(emailInput, emailError);
+    }
+
+    if (hasErrors) return;
+
+    if (auditSubmitBtn) {
+      auditSubmitBtn.textContent = 'Submitting Request...';
+      auditSubmitBtn.setAttribute('disabled', 'true');
+    }
+
+    const attribution = getAttributionData();
+
+    try {
+      // Direct Klaviyo Client Subscription API
+      await fetch(`https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO_COMPANY_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'revision': '2024-02-15'
+        },
+        body: JSON.stringify({
+          data: {
+            type: 'subscription',
+            attributes: {
+              list_id: KLAVIYO_AUDIT_LIST_ID,
+              email: emailVal,
+              properties: {
+                first_name: nameVal,
+                store_url: urlVal,
+                lead_source: 'Bespoke Audit PDF Intake',
+                priority_goal: 'Full Teardown Requested',
+                ...attribution
+              }
+            }
+          }
+        })
+      });
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'audit_pdf_requested', {
+          event_category: 'lead_generation',
+          store_url: urlVal,
+          email_domain: emailVal.split('@')[1] || '',
+          utm_source: attribution.utm_source,
+          utm_campaign: attribution.utm_campaign
+        });
+      }
+
+      // Smooth redirect to dedicated Thank You & Strategy Booking page
+      const redirectParams = new URLSearchParams({
+        name: nameVal,
+        email: emailVal,
+        store_url: urlVal
+      });
+      window.location.href = `thankyou.html?${redirectParams.toString()}`;
+
+    } catch (err) {
+      const redirectParams = new URLSearchParams({
+        name: nameVal,
+        email: emailVal,
+        store_url: urlVal
+      });
+      window.location.href = `thankyou.html?${redirectParams.toString()}`;
+    } finally {
+      if (auditSubmitBtn) {
+        auditSubmitBtn.removeAttribute('disabled');
+        auditSubmitBtn.textContent = 'Get My Free Audit Report →';
+      }
+    }
+  });
+}
