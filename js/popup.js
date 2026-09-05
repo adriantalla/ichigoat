@@ -1,10 +1,11 @@
 // ===========================================================
-// KLAVIYO PUBLIC CLIENT CREDENTIALS
+// KLAVIYO TARGET LIST CONFIGURATION
+// (Reuses KLAVIYO_COMPANY_ID defined in script.js)
 // ===========================================================
 const KLAVIYO_PLAYBOOK_LIST_ID = 'VfyugC';
 
 // ===========================================================
-// FULLSCREEN PLAYBOOK MODAL & CLIENT DISPATCH
+// FULLSCREEN LEAD TAKEOVER & PERMANENT SUPPRESSION
 // ===========================================================
 document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'lead_takeover_dismissed_until';
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sessionStorage.removeItem('lead_widget_hidden');
   }
 
-  // Permanently suppress if user already submitted the form
+  // Permanently suppress if user has already submitted the form
   if (localStorage.getItem(CONVERTED_KEY) === 'true') {
     return;
   }
@@ -200,7 +201,9 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       try {
-        await fetch(`https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO_COMPANY_ID}`, {
+        const companyId = (typeof KLAVIYO_COMPANY_ID !== 'undefined') ? KLAVIYO_COMPANY_ID : 'ViZexi';
+
+        await fetch(`https://a.klaviyo.com/client/subscriptions/?company_id=${companyId}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -210,12 +213,33 @@ document.addEventListener('DOMContentLoaded', () => {
             data: {
               type: 'subscription',
               attributes: {
-                list_id: KLAVIYO_PLAYBOOK_LIST_ID,
+                channels: {
+                  email: {
+                    marketing: {
+                      consent: 'SUBSCRIBED'
+                    }
+                  }
+                },
                 email: email,
-                properties: {
-                  lead_source: '7-Figure Playbook Takeover',
-                  priority_goal: selectedPriority,
-                  ...attribution
+                profile: {
+                  data: {
+                    type: 'profile',
+                    attributes: {
+                      properties: {
+                        lead_source: '7-Figure Playbook Takeover',
+                        priority_goal: selectedPriority,
+                        ...attribution
+                      }
+                    }
+                  }
+                }
+              },
+              relationships: {
+                list: {
+                  data: {
+                    type: 'list',
+                    id: KLAVIYO_PLAYBOOK_LIST_ID
+                  }
                 }
               }
             }
