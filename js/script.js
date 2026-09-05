@@ -1,5 +1,5 @@
 // ===========================================================
-// KLAVIYO PUBLIC CLIENT CREDENTIALS
+// KLAVIYO CREDENTIALS & CONSTANTS
 // ===========================================================
 const KLAVIYO_COMPANY_ID = 'ViZexi';
 const KLAVIYO_AUDIT_LIST_ID = 'TWM3de';
@@ -163,7 +163,7 @@ function runProcessChartAnimation() {
   }
 }
 
-// Trigger once elements enter the viewport
+// Intersection Observer for scroll triggers
 const observed = new WeakSet();
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -321,7 +321,7 @@ document.querySelectorAll('.optin-preview__choice').forEach(choice => {
 });
 
 // ===========================================================
-// AUDIT FORM (DIRECT TO KLAVIYO CLIENT API & REDIRECT)
+// AUDIT INTAKE FORM (DIRECT TO KLAVIYO CLIENT API & REDIRECT)
 // ===========================================================
 const auditForm = document.getElementById('audit-request-form');
 const auditSubmitBtn = document.getElementById('audit-submit-btn');
@@ -385,7 +385,6 @@ if (auditForm) {
     const attribution = getAttributionData();
 
     try {
-      // Direct Klaviyo Client Subscription API
       await fetch(`https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO_COMPANY_ID}`, {
         method: 'POST',
         headers: {
@@ -396,14 +395,35 @@ if (auditForm) {
           data: {
             type: 'subscription',
             attributes: {
-              list_id: KLAVIYO_AUDIT_LIST_ID,
+              channels: {
+                email: {
+                  marketing: {
+                    consent: 'SUBSCRIBED'
+                  }
+                }
+              },
               email: emailVal,
-              properties: {
-                first_name: nameVal,
-                store_url: urlVal,
-                lead_source: 'Bespoke Audit PDF Intake',
-                priority_goal: 'Full Teardown Requested',
-                ...attribution
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: {
+                    first_name: nameVal,
+                    properties: {
+                      store_url: urlVal,
+                      lead_source: 'Bespoke Audit PDF Intake',
+                      priority_goal: 'Full Teardown Requested',
+                      ...attribution
+                    }
+                  }
+                }
+              }
+            },
+            relationships: {
+              list: {
+                data: {
+                  type: 'list',
+                  id: KLAVIYO_AUDIT_LIST_ID
+                }
               }
             }
           }
@@ -420,7 +440,6 @@ if (auditForm) {
         });
       }
 
-      // Smooth redirect to dedicated Thank You & Strategy Booking page
       const redirectParams = new URLSearchParams({
         name: nameVal,
         email: emailVal,
