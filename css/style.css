@@ -561,26 +561,6 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .receipt__total span{ font-size: 12.5px; font-weight: 600; }
 .receipt__total b{ font-size: 21px; font-weight: 700; color: var(--flash-dark); }
 
-/* Direct Loss-Recovery Action in Receipt */
-.receipt__cta-btn{
-  display: block;
-  text-align: center;
-  margin-top: 16px;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 9px 14px;
-  border-radius: 999px;
-  letter-spacing: 0.02em;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-.receipt__cta-btn:hover{
-  background: var(--flash-dark);
-  color: #fff;
-  transform: translateY(-1px);
-}
 .receipt__fine{
   margin: 10px 0 0;
   font-family: var(--font-mono);
@@ -786,7 +766,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .deliv-stat--green{ color: var(--grow) !important; }
 
 /* ===========================================================
-   EMAIL DESIGN SHOWCASE (With Client Badges & Metrics)
+   EMAIL DESIGN SHOWCASE
 =========================================================== */
 .showcase{ padding: 28px 0 72px; }
 .showcase .section-title{ margin-bottom: 32px; }
@@ -844,28 +824,6 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   height: auto;
   display: block;
   pointer-events: none;
-}
-
-/* Metadata Bar under each Card */
-.marquee__meta{
-  padding: 10px 14px;
-  background: #FFFFFF;
-  border-top: 1px solid var(--paper-line);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.marquee__client{
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink);
-}
-.marquee__metric{
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--flash-dark);
 }
 
 .showcase__note{
@@ -952,7 +910,7 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 .timeline__body p{ margin:0; max-width: 560px; color: var(--ink-text-70); }
 
 /* ===========================================================
-   BOOK / INTAKE FORM & WALKTHROUGH CALENDAR
+   BOOK / INTAKE FORM (No Guarantee Section)
 =========================================================== */
 .book{ background: var(--ink); color: var(--paper); padding: 72px 0; }
 .book__grid{
@@ -974,29 +932,6 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   position:absolute; left:0; top:0;
   color: var(--flash);
   font-weight: 700;
-}
-
-.audit-guarantee{
-  margin-top: 32px;
-  padding: 16px 20px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  max-width: 440px;
-}
-.audit-guarantee__badge{
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--grow);
-  display: block;
-  margin-bottom: 6px;
-}
-.audit-guarantee p{
-  margin: 0;
-  font-size: 12.5px;
-  color: var(--paper-text-70);
-  line-height: 1.4;
 }
 
 .book__panel{
@@ -1062,58 +997,6 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   text-align: center;
   margin: 6px 0 0;
 }
-
-/* Success & Embedded Walkthrough Area */
-.audit-success__badge{
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  background: rgba(63, 190, 131, 0.15);
-  color: var(--grow);
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin-bottom: 12px;
-}
-.audit-success__title{
-  font-size: 22px;
-  font-weight: 700;
-  margin: 0 0 8px;
-}
-.audit-success__desc{
-  font-size: 14px;
-  color: var(--ink-text-70);
-  margin-bottom: 24px;
-  line-height: 1.5;
-}
-.audit-success__cal-wrap{
-  border-top: 1px dashed var(--paper-line);
-  padding-top: 20px;
-}
-.audit-success__cal-head{
-  margin-bottom: 16px;
-}
-.audit-success__cal-head strong{
-  display: block;
-  font-family: var(--font-display);
-  font-size: 15px;
-  color: var(--ink-text);
-}
-.audit-success__cal-head span{
-  font-size: 12.5px;
-  color: var(--ink-text-70);
-  line-height: 1.4;
-}
-
-.book__calendar{
-  height: 520px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--paper-line);
-  background: #fff;
-}
-.book__calendar iframe{ display:block; }
 .book__panel-note{ margin: 18px 0 0; font-size: 12.5px; color: var(--ink-text-70); text-align: center; }
 .book__panel-note a{ color: var(--flash-dark); font-weight: 600; }
 
@@ -1168,7 +1051,6 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   .diag-matrix, .optin-preview, .tree-preview, .ltv-preview, .deliverability-preview{ transform: rotate(0deg); }
   .process__layout{ grid-template-columns: 1fr; }
   .process__visual{ position: static; max-width: 400px; margin: 32px auto 0; }
-  .book__calendar{ height: 480px; }
 }
 
 @media (max-width: 720px){
@@ -1180,11 +1062,11 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
 /* ===========================================================
    FORM VALIDATION & INLINE ERRORS
 =========================================================== */
-.audit-form__group {
+.audit-form__group,
+.lead-form__group {
   position: relative;
 }
 
-/* Invalid Input Border & Glow */
 .audit-form__input.is-invalid,
 .lead-input.is-invalid {
   border-color: #E63946 !important;
@@ -1192,7 +1074,6 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.18) !important;
 }
 
-/* Inline Error Text */
 .form-error {
   display: block;
   font-family: var(--font-mono);
@@ -1203,9 +1084,22 @@ h1,h2,h3{ margin:0; font-family: var(--font-display); letter-spacing: -0.01em; }
   line-height: 1.3;
 }
 
-/* Modal Error specific spacing */
 .lead-modal .form-error {
   margin-top: 6px;
   margin-bottom: 8px;
   text-align: center;
+}
+
+/* ===========================================================
+   MODAL ANTI-FLICKER ENFORCEMENT
+=========================================================== */
+.lead-modal:not(.is-open) {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.lead-widget-wrap:not(.is-visible) {
+  display: none !important;
 }
