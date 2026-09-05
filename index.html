@@ -19,10 +19,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/popup.css" />
+<script src="js/popup.js" defer></script>
 </head>
 <body id="top">
   <!-- ============ FULLSCREEN RESULT TAKEOVER & WIDGET ============ -->
-  <div id="lead-widget-wrap" class="lead-widget-wrap">
+  <!-- Minimized Floating Widget (Hidden by default to prevent flicker) -->
+  <div id="lead-widget-wrap" class="lead-widget-wrap" style="display: none;">
     <button id="lead-widget-close" class="lead-widget__close" aria-label="Dismiss widget">✕</button>
     <button id="lead-widget" class="lead-widget" aria-label="Open Playbook Offer">
       <span class="lead-widget__icon">📈</span>
@@ -30,7 +33,8 @@
     </button>
   </div>
 
-  <div id="lead-modal" class="lead-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <!-- Fullscreen Takeover (Hidden by default to prevent flicker) -->
+  <div id="lead-modal" class="lead-modal" role="dialog" aria-modal="true" aria-hidden="true" style="display: none;">
     <div class="lead-modal__glow-bg"></div>
     <button id="lead-modal-close" class="lead-modal__close" aria-label="Close modal">✕</button>
 
@@ -74,7 +78,7 @@
         <button type="button" id="lead-nothanks-btn" class="lead-nothanks-link">No thanks, I will pass on scaling revenue</button>
       </div>
 
-      <!-- Step 2: Direct Email Capture with Inline Error -->
+      <!-- Step 2: Direct Email Capture -->
       <div class="lead-step" id="lead-step-2">
         <div class="lead-badge">📥 Instant PDF Access</div>
         <h2 class="lead-step__title">Where should we send your 7-Figure Retention &amp; Flow Playbook?</h2>
@@ -98,15 +102,12 @@
         </p>
         
         <div class="lead-step__cta-box">
-          <a href="#book" id="lead-book-call-btn" class="btn btn--primary btn--block">Get Your Free Audit</a>
+          <a href="#book" id="lead-book-call-btn" class="btn btn--primary btn--block">Book Your 1-on-1 Growth Session</a>
           <button type="button" id="lead-done-btn" class="lead-text-btn">Return to website</button>
         </div>
       </div>
     </div>
   </div>
-
-  <link rel="stylesheet" href="css/popup.css" />
-  <script src="js/popup.js" defer></script>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -155,6 +156,7 @@
       </a>
     </nav>
 
+    <!-- Audit CTA -->
     <a href="#book" class="nav__cta">
       <svg class="nav__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -188,7 +190,7 @@
           <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
           <a href="#services" class="btn btn--ghost">See what's included</a>
         </div>
-        <p class="hero__note">Custom teardown PDF delivered in 24–48 hours. No sales pitch.</p>
+        <p class="hero__note">Free store teardown. Delivered within 48 hours.</p>
       </div>
 
       <div class="hero__visual" aria-hidden="false">
@@ -251,7 +253,6 @@
               <span>Est. Total Leaked / Mo</span>
               <b id="receipt-total" data-amount="19000">$19,000</b>
             </div>
-            <a href="#book" class="receipt__cta-btn" id="calc-claim-btn">Recover This Revenue &rarr;</a>
             <p class="receipt__fine">*Estimated monthly recoverable flow revenue</p>
           </div>
 
@@ -284,6 +285,7 @@
       <p class="eyebrow">What we do</p>
       <h2 class="section-title">A complete retention engine,<br>built from the ground up</h2>
 
+      <!-- Tab Navigation -->
       <div class="services-tabs__nav" role="tablist" aria-label="Lifecycle Services">
         <button class="services-tabs__btn active" role="tab" aria-selected="true" aria-controls="tab-analyze" id="btn-analyze" data-tab="analyze">
           <span class="services-tabs__num">01</span> Analyze
@@ -302,7 +304,9 @@
         </button>
       </div>
 
+      <!-- Tab Panels Container -->
       <div class="services-tabs__container">
+
         <!-- 01. Analyze -->
         <div class="services-tab__panel active" id="tab-analyze" role="tabpanel" aria-labelledby="btn-analyze">
           <div class="services-tab__grid">
@@ -320,7 +324,7 @@
 
               <div class="services-tab__action">
                 <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
-                <span class="services-tab__note">Comprehensive PDF report. No calls required.</span>
+                <span class="services-tab__note">Includes custom written teardown</span>
               </div>
             </div>
 
@@ -370,7 +374,7 @@
 
               <div class="services-tab__action">
                 <a href="#book" class="btn btn--primary">Get Your Free Audit</a>
-                <span class="services-tab__note">See where your signup forms are losing visitors</span>
+                <span class="services-tab__note">See where your forms are losing visitors</span>
               </div>
             </div>
 
@@ -548,199 +552,122 @@
     </div>
   </section>
 
-  <!-- ============ EMAIL DESIGN SHOWCASE ============ -->
-  <section class="showcase" id="showcase">
-    <div class="wrap">
-      <p class="eyebrow">Attributed Work</p>
-      <h2 class="section-title">Emails built to convert,<br>not just look nice</h2>
-    </div>
+<!-- ============ EMAIL DESIGN SHOWCASE ============ -->
+<section class="showcase" id="showcase">
+  <div class="wrap">
+    <p class="eyebrow">Some of the work</p>
+    <h2 class="section-title">Emails built to convert,<br>not just look nice</h2>
+  </div>
 
-    <div class="marquee" role="region" aria-label="Email design examples">
-      <div class="marquee__track" id="marquee-track">
-        
-        <!-- Group 1: Original Set -->
-        <div class="marquee__group">
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/the-saddle-house_email_spring-riding-gear-refresh.png" alt="The Saddle House Spring Riding Gear Refresh email design" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">The Saddle House</span>
-              <span class="marquee__metric">+34.8% Placed Order Rate</span>
-            </div>
-          </div>
-
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/safari-black-water_email_welcome-1.png" alt="Safari Black Water Welcome Email design" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Safari Black Water</span>
-              <span class="marquee__metric">52.4% Open Rate | $4.20 RPR</span>
-            </div>
-          </div>
-
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/kimes-ranch_email_labor-day.png" alt="Kimes Ranch Labor Day Email" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Kimes Ranch</span>
-              <span class="marquee__metric">$48,200 Campaign Revenue</span>
-            </div>
-          </div>
-
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/win-back.png" alt="Win-Back Flow email design" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">DTC Activewear</span>
-              <span class="marquee__metric">14.6% Dormant Churn Recovery</span>
-            </div>
-          </div>
-
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/vip.png" alt="VIP Campaign email design" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Functional Beverage</span>
-              <span class="marquee__metric">4.8x Return vs Store AOV</span>
-            </div>
-          </div>
-
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/promo.png" alt="Promo Campaign email design" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Pet Nutrition Co</span>
-              <span class="marquee__metric">$24,900 Weekend Flash Send</span>
-            </div>
+  <div class="marquee" role="region" aria-label="Email design examples">
+    <div class="marquee__track" id="marquee-track">
+      
+      <!-- Group 1 -->
+      <div class="marquee__group">
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/the-saddle-house_email_spring-riding-gear-refresh.png" alt="The Saddle House Spring Riding Gear Refresh email design" class="marquee__img" loading="eager" decoding="sync">
           </div>
         </div>
-
-        <!-- Group 2: Clone A -->
-        <div class="marquee__group" aria-hidden="true">
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/the-saddle-house_email_spring-riding-gear-refresh.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">The Saddle House</span>
-              <span class="marquee__metric">+34.8% Placed Order Rate</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/safari-black-water_email_welcome-1.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Safari Black Water</span>
-              <span class="marquee__metric">52.4% Open Rate | $4.20 RPR</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/kimes-ranch_email_labor-day.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Kimes Ranch</span>
-              <span class="marquee__metric">$48,200 Campaign Revenue</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/win-back.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">DTC Activewear</span>
-              <span class="marquee__metric">14.6% Dormant Churn Recovery</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/vip.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Functional Beverage</span>
-              <span class="marquee__metric">4.8x Return vs Store AOV</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/promo.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Pet Nutrition Co</span>
-              <span class="marquee__metric">$24,900 Weekend Flash Send</span>
-            </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/safari-black-water_email_welcome-1.png" alt="Safari Black Water Welcome Email design" class="marquee__img" loading="eager" decoding="sync">
           </div>
         </div>
-
-        <!-- Group 3: Clone B -->
-        <div class="marquee__group" aria-hidden="true">
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/the-saddle-house_email_spring-riding-gear-refresh.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">The Saddle House</span>
-              <span class="marquee__metric">+34.8% Placed Order Rate</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/safari-black-water_email_welcome-1.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Safari Black Water</span>
-              <span class="marquee__metric">52.4% Open Rate | $4.20 RPR</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/kimes-ranch_email_labor-day.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Kimes Ranch</span>
-              <span class="marquee__metric">$48,200 Campaign Revenue</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/win-back.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">DTC Activewear</span>
-              <span class="marquee__metric">14.6% Dormant Churn Recovery</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/vip.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Functional Beverage</span>
-              <span class="marquee__metric">4.8x Return vs Store AOV</span>
-            </div>
-          </div>
-          <div class="marquee__card">
-            <div class="marquee__frame">
-              <img src="assets/images/promo.png" alt="" class="marquee__img" loading="eager" decoding="sync">
-            </div>
-            <div class="marquee__meta">
-              <span class="marquee__client">Pet Nutrition Co</span>
-              <span class="marquee__metric">$24,900 Weekend Flash Send</span>
-            </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/kimes-ranch_email_labor-day.png" alt="Kimes Ranch Labor Day Email" class="marquee__img" loading="eager" decoding="sync">
           </div>
         </div>
-
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/win-back.png" alt="Win-Back Flow email design" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/vip.png" alt="VIP Campaign email design" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/promo.png" alt="Promo Campaign email design" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
       </div>
+
+      <!-- Group 2 -->
+      <div class="marquee__group" aria-hidden="true">
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/the-saddle-house_email_spring-riding-gear-refresh.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/safari-black-water_email_welcome-1.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/kimes-ranch_email_labor-day.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/win-back.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/vip.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/promo.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 3 -->
+      <div class="marquee__group" aria-hidden="true">
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/the-saddle-house_email_spring-riding-gear-refresh.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/safari-black-water_email_welcome-1.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/kimes-ranch_email_labor-day.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/win-back.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/vip.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+        <div class="marquee__card">
+          <div class="marquee__frame">
+            <img src="assets/images/promo.png" alt="" class="marquee__img" loading="eager" decoding="sync">
+          </div>
+        </div>
+      </div>
+
     </div>
-    <p class="showcase__note wrap">Recent email infrastructure builds &ndash; custom designed for high conversion.</p>
-  </section>
+  </div>
+  <p class="showcase__note wrap">Recent email infrastructure builds &ndash; custom designed for high conversion.</p>
+</section>
 
   <!-- ============ PROCESS ============ -->
   <section class="process" id="process">
@@ -755,9 +682,9 @@
               <span class="timeline__day">Day 1&ndash;3</span>
             </div>
             <div class="timeline__body">
-              <p class="timeline__kicker">Audit Request</p>
-              <h3>Diagnostic &amp; PDF Teardown</h3>
-              <p>We review your active flows, list hygiene, and technical deliverability to build your custom retention audit and opportunity roadmap.</p>
+              <p class="timeline__kicker">Kick-off call</p>
+              <h3>Meet your team and map the plan</h3>
+              <p>We hop on a call to learn your products, margins, and customer journey, then set the roadmap for your audit and build.</p>
             </div>
           </li>
           <li class="timeline__item">
@@ -765,9 +692,9 @@
               <span class="timeline__day">Day 4&ndash;8</span>
             </div>
             <div class="timeline__body">
-              <p class="timeline__kicker">Strategy Alignment</p>
-              <h3>Review findings &amp; approve blueprint</h3>
-              <p>Review your written teardown async or hop on a 15-minute walkthrough to prioritize the immediate flow opportunities.</p>
+              <p class="timeline__kicker">Get aligned</p>
+              <h3>Audit your store and flows</h3>
+              <p>We dig into your current email and SMS setup, list health, and existing flows to find your biggest quick wins and gaps.</p>
             </div>
           </li>
           <li class="timeline__item">
@@ -775,9 +702,9 @@
               <span class="timeline__day">Day 9&ndash;13</span>
             </div>
             <div class="timeline__body">
-              <p class="timeline__kicker">Architecture</p>
+              <p class="timeline__kicker">Strategy</p>
               <h3>Map your flow and campaign strategy</h3>
-              <p>We build your multi-branch flow logic, SMS cadences, and monthly send calendars around high-intent revenue milestones.</p>
+              <p>We build your flow architecture and campaign calendar, prioritized around the revenue opportunities the audit uncovered.</p>
             </div>
           </li>
           <li class="timeline__item">
@@ -785,9 +712,9 @@
               <span class="timeline__day">Day 14&ndash;25</span>
             </div>
             <div class="timeline__body">
-              <p class="timeline__kicker">Execution</p>
+              <p class="timeline__kicker">Build the infrastructure</p>
               <h3>Write, design, and deploy every email</h3>
-              <p>We write, code, and deploy your entire infrastructure inside Klaviyo, Omnisend, or your ESP—fully QA-tested before going live.</p>
+              <p>We write and design each email, then deploy your infrastructure inside Klaviyo, Omnisend, or your ESP of choice - tested against real orders before it ever goes live.</p>
             </div>
           </li>
           <li class="timeline__item">
@@ -795,9 +722,9 @@
               <span class="timeline__day">Day 30+</span>
             </div>
             <div class="timeline__body">
-              <p class="timeline__kicker">Optimization</p>
+              <p class="timeline__kicker">Reporting</p>
               <h3>Test, report, repeat</h3>
-              <p>We monitor deliverability, run split-tests on subject lines and offers, and continuously optimize monthly net-attributed revenue.</p>
+              <p>We track opens, clicks, and revenue monthly, then keep testing subject lines, timing, and offers to grow the number that matters.</p>
             </div>
           </li>
         </ol>
@@ -829,7 +756,7 @@
     </div>
   </section>
 
-  <!-- ============ AUDIT INTAKE FORM ============ -->
+  <!-- ============ BOOK AN AUDIT INTAKE ============ -->
   <section class="book" id="book">
     <div class="wrap book__grid">
       <div class="book__copy">
